@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,12 +12,14 @@
 		814798C60C23B19B5D6E0D81 /* Pods_BikeSpotSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CA44E26D6A99393F2DF162 /* Pods_BikeSpotSearch.framework */; };
 		8467CA92257753F9009A1E14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CA91257753F9009A1E14 /* AppDelegate.swift */; };
 		8467CA94257753F9009A1E14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CA93257753F9009A1E14 /* SceneDelegate.swift */; };
-		8467CA96257753F9009A1E14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CA95257753F9009A1E14 /* ViewController.swift */; };
+		8467CA96257753F9009A1E14 /* TopMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CA95257753F9009A1E14 /* TopMapViewController.swift */; };
 		8467CA99257753F9009A1E14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8467CA97257753F9009A1E14 /* Main.storyboard */; };
 		8467CA9B257753FE009A1E14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8467CA9A257753FE009A1E14 /* Assets.xcassets */; };
 		8467CA9E257753FE009A1E14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8467CA9C257753FE009A1E14 /* LaunchScreen.storyboard */; };
 		8467CAA9257753FE009A1E14 /* BikeSpotSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CAA8257753FE009A1E14 /* BikeSpotSearchTests.swift */; };
 		8467CAB4257753FE009A1E14 /* BikeSpotSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CAB3257753FE009A1E14 /* BikeSpotSearchUITests.swift */; };
+		8480A14D25779E0E009C9E29 /* apiKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8480A14C25779E0E009C9E29 /* apiKey.plist */; };
+		8480A1532577A2C7009C9E29 /* APIKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480A1522577A2C7009C9E29 /* APIKeyManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +47,7 @@
 		8467CA8E257753F9009A1E14 /* BikeSpotSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeSpotSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8467CA91257753F9009A1E14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8467CA93257753F9009A1E14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8467CA95257753F9009A1E14 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8467CA95257753F9009A1E14 /* TopMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMapViewController.swift; sourceTree = "<group>"; };
 		8467CA98257753F9009A1E14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8467CA9A257753FE009A1E14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8467CA9D257753FE009A1E14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,6 +58,8 @@
 		8467CAAF257753FE009A1E14 /* BikeSpotSearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BikeSpotSearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8467CAB3257753FE009A1E14 /* BikeSpotSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeSpotSearchUITests.swift; sourceTree = "<group>"; };
 		8467CAB5257753FE009A1E14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8480A14C25779E0E009C9E29 /* apiKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = apiKey.plist; sourceTree = "<group>"; };
+		8480A1522577A2C7009C9E29 /* APIKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyManager.swift; sourceTree = "<group>"; };
 		9810AB3437167A5EC121E276 /* Pods_BikeSpotSearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BikeSpotSearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD1735EE927A836941A4558E /* Pods-BikeSpotSearch-BikeSpotSearchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BikeSpotSearch-BikeSpotSearchUITests.debug.xcconfig"; path = "Target Support Files/Pods-BikeSpotSearch-BikeSpotSearchUITests/Pods-BikeSpotSearch-BikeSpotSearchUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E3CA44E26D6A99393F2DF162 /* Pods_BikeSpotSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BikeSpotSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,7 +115,6 @@
 				F08BC9ABD779FE74ABCAB5D3 /* Pods-BikeSpotSearchTests.debug.xcconfig */,
 				FFBA96C5D6932A8091615638 /* Pods-BikeSpotSearchTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -142,11 +145,12 @@
 			children = (
 				8467CA91257753F9009A1E14 /* AppDelegate.swift */,
 				8467CA93257753F9009A1E14 /* SceneDelegate.swift */,
-				8467CA95257753F9009A1E14 /* ViewController.swift */,
+				8467CA95257753F9009A1E14 /* TopMapViewController.swift */,
 				8467CA97257753F9009A1E14 /* Main.storyboard */,
 				8467CA9A257753FE009A1E14 /* Assets.xcassets */,
 				8467CA9C257753FE009A1E14 /* LaunchScreen.storyboard */,
-				8467CA9F257753FE009A1E14 /* Info.plist */,
+				8480A1512577A2A2009C9E29 /* Misc */,
+				8480A14B25779DB9009C9E29 /* Resources */,
 			);
 			path = BikeSpotSearch;
 			sourceTree = "<group>";
@@ -167,6 +171,23 @@
 				8467CAB5257753FE009A1E14 /* Info.plist */,
 			);
 			path = BikeSpotSearchUITests;
+			sourceTree = "<group>";
+		};
+		8480A14B25779DB9009C9E29 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8467CA9F257753FE009A1E14 /* Info.plist */,
+				8480A14C25779E0E009C9E29 /* apiKey.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8480A1512577A2A2009C9E29 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				8480A1522577A2C7009C9E29 /* APIKeyManager.swift */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8467CA9E257753FE009A1E14 /* LaunchScreen.storyboard in Resources */,
+				8480A14D25779E0E009C9E29 /* apiKey.plist in Resources */,
 				8467CA9B257753FE009A1E14 /* Assets.xcassets in Resources */,
 				8467CA99257753F9009A1E14 /* Main.storyboard in Resources */,
 			);
@@ -426,7 +448,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8467CA96257753F9009A1E14 /* ViewController.swift in Sources */,
+				8480A1532577A2C7009C9E29 /* APIKeyManager.swift in Sources */,
+				8467CA96257753F9009A1E14 /* TopMapViewController.swift in Sources */,
 				8467CA92257753F9009A1E14 /* AppDelegate.swift in Sources */,
 				8467CA94257753F9009A1E14 /* SceneDelegate.swift in Sources */,
 			);
@@ -607,7 +630,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 865EAR2L75;
-				INFOPLIST_FILE = BikeSpotSearch/Info.plist;
+				INFOPLIST_FILE = BikeSpotSearch/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -627,7 +650,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 865EAR2L75;
-				INFOPLIST_FILE = BikeSpotSearch/Info.plist;
+				INFOPLIST_FILE = BikeSpotSearch/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
