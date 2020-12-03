@@ -25,9 +25,13 @@ class TopMapViewController: UIViewController {
         }
     }
 
+    private var presenter: TopMapPresenterInput!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.presenter = TopMapPresenter(view: self)
+        // MARK: TODO LocationManager用のクラスを後で作る
         locationManager = CLLocationManager()
 
         if #available(iOS 14, *) {
@@ -50,6 +54,10 @@ class TopMapViewController: UIViewController {
             break
         }
     }
+
+}
+
+extension TopMapViewController: TopMapPresenterOutPut {
 
 }
 

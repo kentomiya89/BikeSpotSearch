@@ -13,12 +13,14 @@
 		8467CA92257753F9009A1E14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CA91257753F9009A1E14 /* AppDelegate.swift */; };
 		8467CA94257753F9009A1E14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CA93257753F9009A1E14 /* SceneDelegate.swift */; };
 		8467CA96257753F9009A1E14 /* TopMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CA95257753F9009A1E14 /* TopMapViewController.swift */; };
-		8467CA99257753F9009A1E14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8467CA97257753F9009A1E14 /* Main.storyboard */; };
+		8467CA99257753F9009A1E14 /* TopMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8467CA97257753F9009A1E14 /* TopMap.storyboard */; };
 		8467CA9B257753FE009A1E14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8467CA9A257753FE009A1E14 /* Assets.xcassets */; };
 		8467CA9E257753FE009A1E14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8467CA9C257753FE009A1E14 /* LaunchScreen.storyboard */; };
 		8467CAA9257753FE009A1E14 /* BikeSpotSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CAA8257753FE009A1E14 /* BikeSpotSearchTests.swift */; };
 		8467CAB4257753FE009A1E14 /* BikeSpotSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CAB3257753FE009A1E14 /* BikeSpotSearchUITests.swift */; };
 		8474207D2578BFDE0038B829 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8474207C2578BFDE0038B829 /* Alamofire */; };
+		8474208325792B370038B829 /* TopMapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474208225792B370038B829 /* TopMapPresenter.swift */; };
+		84742088257935B00038B829 /* TopMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84742087257935B00038B829 /* TopMapModel.swift */; };
 		8480A14D25779E0E009C9E29 /* apiKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8480A14C25779E0E009C9E29 /* apiKey.plist */; };
 		8480A1532577A2C7009C9E29 /* APIKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480A1522577A2C7009C9E29 /* APIKeyManager.swift */; };
 /* End PBXBuildFile section */
@@ -49,7 +51,7 @@
 		8467CA91257753F9009A1E14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8467CA93257753F9009A1E14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8467CA95257753F9009A1E14 /* TopMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMapViewController.swift; sourceTree = "<group>"; };
-		8467CA98257753F9009A1E14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8467CA98257753F9009A1E14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TopMap.storyboard; sourceTree = "<group>"; };
 		8467CA9A257753FE009A1E14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8467CA9D257753FE009A1E14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8467CA9F257753FE009A1E14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +61,8 @@
 		8467CAAF257753FE009A1E14 /* BikeSpotSearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BikeSpotSearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8467CAB3257753FE009A1E14 /* BikeSpotSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeSpotSearchUITests.swift; sourceTree = "<group>"; };
 		8467CAB5257753FE009A1E14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8474208225792B370038B829 /* TopMapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMapPresenter.swift; sourceTree = "<group>"; };
+		84742087257935B00038B829 /* TopMapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMapModel.swift; sourceTree = "<group>"; };
 		8480A14C25779E0E009C9E29 /* apiKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = apiKey.plist; sourceTree = "<group>"; };
 		8480A1522577A2C7009C9E29 /* APIKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyManager.swift; sourceTree = "<group>"; };
 		9810AB3437167A5EC121E276 /* Pods_BikeSpotSearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BikeSpotSearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,8 +151,7 @@
 			children = (
 				8467CA91257753F9009A1E14 /* AppDelegate.swift */,
 				8467CA93257753F9009A1E14 /* SceneDelegate.swift */,
-				8467CA95257753F9009A1E14 /* TopMapViewController.swift */,
-				8467CA97257753F9009A1E14 /* Main.storyboard */,
+				8474208F257939370038B829 /* TopMap */,
 				8467CA9A257753FE009A1E14 /* Assets.xcassets */,
 				8467CA9C257753FE009A1E14 /* LaunchScreen.storyboard */,
 				8480A1512577A2A2009C9E29 /* Misc */,
@@ -173,6 +176,17 @@
 				8467CAB5257753FE009A1E14 /* Info.plist */,
 			);
 			path = BikeSpotSearchUITests;
+			sourceTree = "<group>";
+		};
+		8474208F257939370038B829 /* TopMap */ = {
+			isa = PBXGroup;
+			children = (
+				8467CA95257753F9009A1E14 /* TopMapViewController.swift */,
+				8474208225792B370038B829 /* TopMapPresenter.swift */,
+				84742087257935B00038B829 /* TopMapModel.swift */,
+				8467CA97257753F9009A1E14 /* TopMap.storyboard */,
+			);
+			path = TopMap;
 			sourceTree = "<group>";
 		};
 		8480A14B25779DB9009C9E29 /* Resources */ = {
@@ -310,7 +324,7 @@
 				8467CA9E257753FE009A1E14 /* LaunchScreen.storyboard in Resources */,
 				8480A14D25779E0E009C9E29 /* apiKey.plist in Resources */,
 				8467CA9B257753FE009A1E14 /* Assets.xcassets in Resources */,
-				8467CA99257753F9009A1E14 /* Main.storyboard in Resources */,
+				8467CA99257753F9009A1E14 /* TopMap.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,7 +470,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8474208325792B370038B829 /* TopMapPresenter.swift in Sources */,
 				8480A1532577A2C7009C9E29 /* APIKeyManager.swift in Sources */,
+				84742088257935B00038B829 /* TopMapModel.swift in Sources */,
 				8467CA96257753F9009A1E14 /* TopMapViewController.swift in Sources */,
 				8467CA92257753F9009A1E14 /* AppDelegate.swift in Sources */,
 				8467CA94257753F9009A1E14 /* SceneDelegate.swift in Sources */,
@@ -495,12 +511,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8467CA97257753F9009A1E14 /* Main.storyboard */ = {
+		8467CA97257753F9009A1E14 /* TopMap.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				8467CA98257753F9009A1E14 /* Base */,
 			);
-			name = Main.storyboard;
+			name = TopMap.storyboard;
 			sourceTree = "<group>";
 		};
 		8467CA9C257753FE009A1E14 /* LaunchScreen.storyboard */ = {
