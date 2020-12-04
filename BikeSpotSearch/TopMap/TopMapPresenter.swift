@@ -30,5 +30,14 @@ class TopMapPresenter {
 extension TopMapPresenter: TopMapPresenterInput {
 
     func viewDidLoad() {
+
+        model.fetchBikeSpot { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure:
+            print("失敗した")
+            }
+        }
     }
 }

@@ -40,6 +40,8 @@ class TopMapViewController: UIViewController {
             // 従来のリクエスト
             requestLocation()
         }
+
+        presenter.viewDidLoad()
     }
 
     // iOS 13でのリクエスト
