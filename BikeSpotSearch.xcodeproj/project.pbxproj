@@ -28,6 +28,7 @@
 		847420CF257A718A0038B829 /* GMAPIClinet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847420CE257A718A0038B829 /* GMAPIClinet.swift */; };
 		847420F7257B43990038B829 /* place_search.json in Resources */ = {isa = PBXBuildFile; fileRef = 847420F6257B43990038B829 /* place_search.json */; };
 		847420FC257B48320038B829 /* DemoJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847420FB257B48320038B829 /* DemoJSON.swift */; };
+		84742126257B5D960038B829 /* Rader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84742125257B5D950038B829 /* Rader.swift */; };
 		8480A14D25779E0E009C9E29 /* apiKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8480A14C25779E0E009C9E29 /* apiKey.plist */; };
 		8480A1532577A2C7009C9E29 /* APIKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480A1522577A2C7009C9E29 /* APIKeyManager.swift */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 		847420CE257A718A0038B829 /* GMAPIClinet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMAPIClinet.swift; sourceTree = "<group>"; };
 		847420F6257B43990038B829 /* place_search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = place_search.json; sourceTree = "<group>"; };
 		847420FB257B48320038B829 /* DemoJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoJSON.swift; sourceTree = "<group>"; };
+		84742125257B5D950038B829 /* Rader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rader.swift; sourceTree = "<group>"; };
 		8480A14C25779E0E009C9E29 /* apiKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = apiKey.plist; sourceTree = "<group>"; };
 		8480A1522577A2C7009C9E29 /* APIKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyManager.swift; sourceTree = "<group>"; };
 		9810AB3437167A5EC121E276 /* Pods_BikeSpotSearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BikeSpotSearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +177,7 @@
 				847420CD257A71690038B829 /* APIClinet */,
 				8474209425793B3D0038B829 /* Reuqest */,
 				847420AD257A430D0038B829 /* Response */,
+				84742121257B59B30038B829 /* Location */,
 				8467CA9A257753FE009A1E14 /* Assets.xcassets */,
 				8467CA9C257753FE009A1E14 /* LaunchScreen.storyboard */,
 				8480A1512577A2A2009C9E29 /* Misc */,
@@ -236,6 +239,14 @@
 				847420CE257A718A0038B829 /* GMAPIClinet.swift */,
 			);
 			path = APIClinet;
+			sourceTree = "<group>";
+		};
+		84742121257B59B30038B829 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				84742125257B5D950038B829 /* Rader.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 		8480A14B25779DB9009C9E29 /* Resources */ = {
@@ -534,6 +545,7 @@
 				8467CA96257753F9009A1E14 /* TopMapViewController.swift in Sources */,
 				8467CA92257753F9009A1E14 /* AppDelegate.swift in Sources */,
 				8467CA94257753F9009A1E14 /* SceneDelegate.swift in Sources */,
+				84742126257B5D960038B829 /* Rader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
