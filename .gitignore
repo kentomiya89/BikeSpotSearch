@@ -3,7 +3,8 @@
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 ## API key 
-apikey.plist
+apiKey.plist
+place_search.json
 
 ## User settings
 xcuserdata/

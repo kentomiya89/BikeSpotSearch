@@ -31,6 +31,11 @@ extension TopMapPresenter: TopMapPresenterInput {
 
     func viewDidLoad() {
 
+        #if DEMO
+        model.getBikeSpotFromJSONData { (result) in
+            print(result)
+        }
+        #else
         model.fetchBikeSpot { (result) in
             switch result {
             case .success(let response):
@@ -39,5 +44,6 @@ extension TopMapPresenter: TopMapPresenterInput {
             print("失敗した")
             }
         }
+        #endif
     }
 }
