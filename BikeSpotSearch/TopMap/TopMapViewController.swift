@@ -28,9 +28,15 @@ class TopMapViewController: UIViewController {
 }
 
 extension TopMapViewController: TopMapPresenterOutPut {
+
     func showCurrentLocation(_ location: CLLocation) {
         mapView.camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
                                                   longitude: location.coordinate.longitude,
                                                   zoom: 13.0)
     }
+
+    func showBikeParking(_ bikeParkMarkers: [GMSMarker]) {
+        bikeParkMarkers.map { $0.map = mapView }
+    }
+
 }

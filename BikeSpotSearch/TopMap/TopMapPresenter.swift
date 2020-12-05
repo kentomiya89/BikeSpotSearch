@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import GoogleMaps
 
 protocol TopMapPresenterInput {
     func viewDidLoad()
@@ -16,6 +17,8 @@ protocol TopMapPresenterInput {
 protocol TopMapPresenterOutPut: AnyObject {
     // 現在地を表示する
     func showCurrentLocation(_ location: CLLocation)
+    // バイク駐輪場を表示する
+    func showBikeParking(_ bikeParkMarkers: [GMSMarker])
 }
 
 class TopMapPresenter {
@@ -39,19 +42,37 @@ extension TopMapPresenter: TopMapPresenterInput {
 
     private func requestLocation() {
         #if DEMO
-        model.getBikeSpotFromJSONData { (result) in
+        model.getBikeSpotFromJSONData { [weak self] (result) in
             print(result)
+            guard let result = result else { return }
+            self?.makeMarkers(result)
         }
         #else
-        model.fetchBikeSpot { (result) in
+        model.fetchBikeSpot { [weak self] (result) in
             switch result {
             case .success(let response):
                 print(response)
+                self?.makeMarkers(response)
             case .failure:
             print("失敗した")
             }
         }
         #endif
+    }
+
+    // アイコンを生成する
+    private func makeMarkers(_ bikeSpot: BikeSpot) {
+
+        let markerArray: [GMSMarker] = bikeSpot.results.map {
+            let position = CLLocationCoordinate2DMake($0.lat, $0.lng)
+            let marker = GMSMarker(position: position)
+            marker.icon = UIImage(named: "BikePark")
+            marker.title = $0.name
+            marker.snippet = "適当"
+            return marker
+        }
+
+        view.showBikeParking(markerArray)
     }
 
 }
