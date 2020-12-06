@@ -15,6 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+        let topMap = UIStoryboard.init(name: "TopMap", bundle: nil).instantiateViewController(identifier: "TopMapViewController") as TopMapViewController
+
+        let navigaitonController = UINavigationController(rootViewController: topMap)
+
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = navigaitonController
+        self.window?.makeKeyAndVisible()
+
         if let apikey = getGoogleMapKey {
             GMSServices.provideAPIKey(apikey)
         }

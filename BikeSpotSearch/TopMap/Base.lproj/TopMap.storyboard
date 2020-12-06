@@ -9,26 +9,27 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Top Map View Controller-->
+        <!--地図画面-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TopMapViewController" customModule="BikeSpotSearch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TopMapViewController" title="地図画面" id="BYZ-38-t0r" customClass="TopMapViewController" customModule="BikeSpotSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2b-MJ-rXL" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <viewLayoutGuide key="safeArea" id="Jqi-gd-Pbx"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="yQU-EE-5ha"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="M2b-MJ-rXL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SB4-ih-cA8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="M2b-MJ-rXL" secondAttribute="bottom" id="ZPG-fm-1sU"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="M2b-MJ-rXL" secondAttribute="trailing" id="n60-Ce-exN"/>
-                            <constraint firstItem="M2b-MJ-rXL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="sdG-kN-SW0"/>
+                            <constraint firstItem="M2b-MJ-rXL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="SB4-ih-cA8"/>
+                            <constraint firstAttribute="bottom" secondItem="M2b-MJ-rXL" secondAttribute="bottom" id="ZPG-fm-1sU"/>
+                            <constraint firstAttribute="trailing" secondItem="M2b-MJ-rXL" secondAttribute="trailing" id="n60-Ce-exN"/>
+                            <constraint firstItem="M2b-MJ-rXL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="sdG-kN-SW0"/>
                         </constraints>
                     </view>
                     <connections>
