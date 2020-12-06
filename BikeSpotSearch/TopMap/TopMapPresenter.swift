@@ -25,6 +25,7 @@ class TopMapPresenter {
 
     private weak var view: TopMapPresenterOutPut!
     private var model: TopMapModelOutput
+    private var didShowCurrent: Bool = false
 
     init(view: TopMapPresenterOutPut) {
         self.view = view
@@ -80,6 +81,11 @@ extension TopMapPresenter: TopMapPresenterInput {
 extension TopMapPresenter: RaderDelgate {
 
     func currentLocation(location: CLLocation) {
+        // 既に現在地を表示していたら表示しない
+        if didShowCurrent == true {
+            return
+        }
+        didShowCurrent = true
 
         requestLocation()
         view.showCurrentLocation(location)
