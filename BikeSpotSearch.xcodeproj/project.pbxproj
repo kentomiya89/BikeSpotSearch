@@ -12,7 +12,6 @@
 		814798C60C23B19B5D6E0D81 /* Pods_BikeSpotSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CA44E26D6A99393F2DF162 /* Pods_BikeSpotSearch.framework */; };
 		8431A2AB257CA25D00AEC5D0 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431A2AA257CA25D00AEC5D0 /* Define.swift */; };
 		8467CA92257753F9009A1E14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CA91257753F9009A1E14 /* AppDelegate.swift */; };
-		8467CA94257753F9009A1E14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CA93257753F9009A1E14 /* SceneDelegate.swift */; };
 		8467CA96257753F9009A1E14 /* TopMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CA95257753F9009A1E14 /* TopMapViewController.swift */; };
 		8467CA99257753F9009A1E14 /* TopMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8467CA97257753F9009A1E14 /* TopMap.storyboard */; };
 		8467CA9B257753FE009A1E14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8467CA9A257753FE009A1E14 /* Assets.xcassets */; };
@@ -61,7 +60,6 @@
 		8431A2AA257CA25D00AEC5D0 /* Define.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		8467CA8E257753F9009A1E14 /* BikeSpotSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeSpotSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8467CA91257753F9009A1E14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8467CA93257753F9009A1E14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8467CA95257753F9009A1E14 /* TopMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMapViewController.swift; sourceTree = "<group>"; };
 		8467CA98257753F9009A1E14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TopMap.storyboard; sourceTree = "<group>"; };
 		8467CA9A257753FE009A1E14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -174,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				8467CA91257753F9009A1E14 /* AppDelegate.swift */,
-				8467CA93257753F9009A1E14 /* SceneDelegate.swift */,
 				8474208F257939370038B829 /* TopMap */,
 				847420CD257A71690038B829 /* APIClinet */,
 				8474209425793B3D0038B829 /* Reuqest */,
@@ -548,7 +545,6 @@
 				847420CF257A718A0038B829 /* GMAPIClinet.swift in Sources */,
 				8467CA96257753F9009A1E14 /* TopMapViewController.swift in Sources */,
 				8467CA92257753F9009A1E14 /* AppDelegate.swift in Sources */,
-				8467CA94257753F9009A1E14 /* SceneDelegate.swift in Sources */,
 				84742126257B5D960038B829 /* Rader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
