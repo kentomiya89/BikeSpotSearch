@@ -6,6 +6,9 @@
 apiKey.plist
 place_search.json
 
+## SwiftGen
+Generated/
+
 ## User settings
 xcuserdata/
 

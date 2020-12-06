@@ -73,7 +73,7 @@ extension TopMapPresenter: TopMapPresenterInput {
         .map {
             let position = CLLocationCoordinate2DMake($0.lat, $0.lng)
             let marker = GMSMarker(position: position)
-            marker.icon = UIImage(named: "BikePark")
+            marker.icon = Asset.bikePark.image
             marker.title = $0.name
             return marker
         }
