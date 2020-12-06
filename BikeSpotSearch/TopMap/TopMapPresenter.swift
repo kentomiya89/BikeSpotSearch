@@ -41,19 +41,19 @@ extension TopMapPresenter: TopMapPresenterInput {
         Radar.shared.start()
     }
 
-    private func requestLocation() {
+    private func requestLocation(_ current: CLLocation) {
         #if DEMO
         model.getBikeSpotFromJSONData { [weak self] (result) in
             print(result)
             guard let result = result else { return }
-            self?.makeMarkers(result)
+            self?.makeMarkers(result, current)
         }
         #else
         model.fetchBikeSpot { [weak self] (result) in
             switch result {
             case .success(let response):
                 print(response)
-                self?.makeMarkers(response)
+                self?.makeMarkers(response, current)
             case .failure:
             print("失敗した")
             }
@@ -62,14 +62,19 @@ extension TopMapPresenter: TopMapPresenterInput {
     }
 
     // アイコンを生成する
-    private func makeMarkers(_ bikeSpot: BikeSpot) {
+    private func makeMarkers(_ bikeSpot: BikeSpot, _ current: CLLocation) {
 
-        let markerArray: [GMSMarker] = bikeSpot.results.map {
+        let markerArray: [GMSMarker] = bikeSpot.results.filter {
+            let position = CLLocationCoordinate2DMake($0.lat, $0.lng)
+            let point: CLLocation = CLLocation(latitude: position.latitude, longitude: position.longitude)
+
+            return point.distance(from: current) <= LocationRelateNumber.searchRange
+        }
+        .map {
             let position = CLLocationCoordinate2DMake($0.lat, $0.lng)
             let marker = GMSMarker(position: position)
             marker.icon = UIImage(named: "BikePark")
             marker.title = $0.name
-            marker.snippet = "適当"
             return marker
         }
 
@@ -87,7 +92,7 @@ extension TopMapPresenter: RaderDelgate {
         }
         didShowCurrent = true
 
-        requestLocation()
+        requestLocation(location)
         view.showCurrentLocation(location)
     }
 

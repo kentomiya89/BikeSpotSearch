@@ -21,7 +21,7 @@ final class GMAPI {
             return [URLQueryItem(name: "key", value: APIKeyManager().getValue(key: "GoogleMapKey") as? String),
                     URLQueryItem(name: "query", value: "自動二輪駐輪場"),
                     URLQueryItem(name: "language", value: "ja"),
-                    URLQueryItem(name: "range", value: "3000")]
+                    URLQueryItem(name: "range", value: String(LocationRelateNumber.searchRange))]
         }
     }
 }

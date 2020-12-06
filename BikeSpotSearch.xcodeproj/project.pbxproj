@@ -10,6 +10,7 @@
 		139AB1009D1A213953FE5C44 /* Pods_BikeSpotSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9810AB3437167A5EC121E276 /* Pods_BikeSpotSearchTests.framework */; };
 		1C230D3C2EDBD3C18A66DF98 /* Pods_BikeSpotSearch_BikeSpotSearchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D5C419DD80D0D3398D6EA4 /* Pods_BikeSpotSearch_BikeSpotSearchUITests.framework */; };
 		814798C60C23B19B5D6E0D81 /* Pods_BikeSpotSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3CA44E26D6A99393F2DF162 /* Pods_BikeSpotSearch.framework */; };
+		8431A2AB257CA25D00AEC5D0 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431A2AA257CA25D00AEC5D0 /* Define.swift */; };
 		8467CA92257753F9009A1E14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CA91257753F9009A1E14 /* AppDelegate.swift */; };
 		8467CA94257753F9009A1E14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CA93257753F9009A1E14 /* SceneDelegate.swift */; };
 		8467CA96257753F9009A1E14 /* TopMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CA95257753F9009A1E14 /* TopMapViewController.swift */; };
@@ -18,7 +19,7 @@
 		8467CA9E257753FE009A1E14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8467CA9C257753FE009A1E14 /* LaunchScreen.storyboard */; };
 		8467CAA9257753FE009A1E14 /* BikeSpotSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CAA8257753FE009A1E14 /* BikeSpotSearchTests.swift */; };
 		8467CAB4257753FE009A1E14 /* BikeSpotSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CAB3257753FE009A1E14 /* BikeSpotSearchUITests.swift */; };
-		8474207D2578BFDE0038B829 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 8474207C2578BFDE0038B829 /* SwiftPackageProductDependency */; };
+		8474207D2578BFDE0038B829 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8474207C2578BFDE0038B829 /* Alamofire */; };
 		8474208325792B370038B829 /* TopMapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474208225792B370038B829 /* TopMapPresenter.swift */; };
 		84742088257935B00038B829 /* TopMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84742087257935B00038B829 /* TopMapModel.swift */; };
 		8474209925793BB00038B829 /* GMRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474209825793BB00038B829 /* GMRequest.swift */; };
@@ -57,6 +58,7 @@
 		4B994162BA8AB28746624175 /* Pods-BikeSpotSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BikeSpotSearch.debug.xcconfig"; path = "Target Support Files/Pods-BikeSpotSearch/Pods-BikeSpotSearch.debug.xcconfig"; sourceTree = "<group>"; };
 		4D2095474DC7FFA325C67A8A /* Pods-BikeSpotSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BikeSpotSearch.release.xcconfig"; path = "Target Support Files/Pods-BikeSpotSearch/Pods-BikeSpotSearch.release.xcconfig"; sourceTree = "<group>"; };
 		6981869155D19FE68BF1106C /* Pods-BikeSpotSearch-BikeSpotSearchUITests.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BikeSpotSearch-BikeSpotSearchUITests.demo.xcconfig"; path = "Target Support Files/Pods-BikeSpotSearch-BikeSpotSearchUITests/Pods-BikeSpotSearch-BikeSpotSearchUITests.demo.xcconfig"; sourceTree = "<group>"; };
+		8431A2AA257CA25D00AEC5D0 /* Define.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		8467CA8E257753F9009A1E14 /* BikeSpotSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeSpotSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8467CA91257753F9009A1E14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8467CA93257753F9009A1E14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,7 +99,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				814798C60C23B19B5D6E0D81 /* Pods_BikeSpotSearch.framework in Frameworks */,
-				8474207D2578BFDE0038B829 /* BuildFile in Frameworks */,
+				8474207D2578BFDE0038B829 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +266,7 @@
 			children = (
 				8480A1522577A2C7009C9E29 /* APIKeyManager.swift */,
 				847420FB257B48320038B829 /* DemoJSON.swift */,
+				8431A2AA257CA25D00AEC5D0 /* Define.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -288,7 +291,7 @@
 			);
 			name = BikeSpotSearch;
 			packageProductDependencies = (
-				8474207C2578BFDE0038B829 /* SwiftPackageProductDependency */,
+				8474207C2578BFDE0038B829 /* Alamofire */,
 			);
 			productName = BikeSpotSearch;
 			productReference = 8467CA8E257753F9009A1E14 /* BikeSpotSearch.app */;
@@ -365,7 +368,7 @@
 			);
 			mainGroup = 8467CA85257753F9009A1E14;
 			packageReferences = (
-				8474207B2578BFDE0038B829 /* RemoteSwiftPackageReference */,
+				8474207B2578BFDE0038B829 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 8467CA8F257753F9009A1E14 /* Products */;
 			projectDirPath = "";
@@ -539,6 +542,7 @@
 				8474209925793BB00038B829 /* GMRequest.swift in Sources */,
 				8480A1532577A2C7009C9E29 /* APIKeyManager.swift in Sources */,
 				847420C6257A5BB40038B829 /* ResultStatus.swift in Sources */,
+				8431A2AB257CA25D00AEC5D0 /* Define.swift in Sources */,
 				84742088257935B00038B829 /* TopMapModel.swift in Sources */,
 				847420A9257A42B50038B829 /* GMAPI.swift in Sources */,
 				847420CF257A718A0038B829 /* GMAPIClinet.swift in Sources */,
@@ -1017,7 +1021,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8474207B2578BFDE0038B829 /* RemoteSwiftPackageReference */ = {
+		8474207B2578BFDE0038B829 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
@@ -1028,9 +1032,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8474207C2578BFDE0038B829 /* SwiftPackageProductDependency */ = {
+		8474207C2578BFDE0038B829 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8474207B2578BFDE0038B829 /* RemoteSwiftPackageReference */;
+			package = 8474207B2578BFDE0038B829 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
