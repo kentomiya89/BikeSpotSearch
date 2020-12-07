@@ -12,16 +12,13 @@ import GoogleMaps
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    private (set) lazy var tabBarController = MainTabBarController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        let topMap = StoryboardScene.TopMap.initialScene.instantiate()
-
-        let navigaitonController = UINavigationController(rootViewController: topMap)
-
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = navigaitonController
         self.window?.makeKeyAndVisible()
+        self.window?.rootViewController = tabBarController
 
         if let apikey = getGoogleMapKey {
             GMSServices.provideAPIKey(apikey)
