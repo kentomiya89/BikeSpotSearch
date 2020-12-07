@@ -13,3 +13,15 @@ struct LocationRelateNumber {
 
     static let zoomValue = 14.0
 }
+
+enum PlaceSearchType: String {
+    case bikePark
+    case bikeShop
+
+    var rawValue: String {
+        switch self {
+        case .bikePark: return L10n.bikePark
+        case .bikeShop: return L10n.bikeShop
+        }
+    }
+}

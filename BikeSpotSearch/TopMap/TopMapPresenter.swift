@@ -44,25 +44,33 @@ extension TopMapPresenter: TopMapPresenterInput {
     private func requestLocation(_ current: CLLocation) {
         #if DEMO
         model.getBikeSpotFromJSONData { [weak self] (result) in
+            // 取得失敗
             print(result)
             guard let result = result else { return }
-            self?.makeMarkers(result, current)
+
+            let bikePark = result[PlaceSearchType.bikePark.rawValue]!
+            self?.makeMarkers(bikePark, current, .bikePark)
+
+            let bikeShop = result[PlaceSearchType.bikeShop.rawValue]!
+            self?.makeMarkers(bikeShop, current, .bikeShop)
+
         }
         #else
-        model.fetchBikeSpot { [weak self] (result) in
-            switch result {
-            case .success(let response):
-                print(response)
-                self?.makeMarkers(response, current)
-            case .failure:
-            print("失敗した")
-            }
+        model.fetchBikeSpot { [weak self] result in
+            // 取得失敗
+            guard let result = result else { return }
+
+            let bikePark = result[PlaceSearchType.bikePark.rawValue]!
+            self?.makeMarkers(bikePark, current, .bikePark)
+
+            let bikeShop = result[PlaceSearchType.bikeShop.rawValue]!
+            self?.makeMarkers(bikeShop, current, .bikeShop)
         }
         #endif
     }
 
     // アイコンを生成する
-    private func makeMarkers(_ bikeSpot: BikeSpot, _ current: CLLocation) {
+    private func makeMarkers(_ bikeSpot: BikeSpot, _ current: CLLocation, _ bikeSpotType: PlaceSearchType) {
 
         let markerArray: [GMSMarker] = bikeSpot.results.filter {
             let position = CLLocationCoordinate2DMake($0.lat, $0.lng)
@@ -73,9 +81,17 @@ extension TopMapPresenter: TopMapPresenterInput {
         .map {
             let position = CLLocationCoordinate2DMake($0.lat, $0.lng)
             let marker = GMSMarker(position: position)
-            marker.icon = Asset.bikePark.image
+            switch bikeSpotType {
+            case .bikePark: marker.icon = Asset.bikePark.image
+            case .bikeShop: marker.icon = Asset.bikeShop.image
+            }
             marker.title = $0.name
             return marker
+        }
+
+        // 最寄りに候補が一つもなければ終了
+        if markerArray.count == 0 {
+            return
         }
 
         view.showBikeParking(markerArray)
