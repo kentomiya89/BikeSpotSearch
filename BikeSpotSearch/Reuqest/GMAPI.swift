@@ -20,13 +20,13 @@ final class GMAPI {
         var path: String {
             return "/place/textsearch/json"
         }
-        
+
         var locationQueryStr: String {
             return String(location.coordinate.latitude) + "," + String(location.coordinate.longitude)
         }
-        
+
         var queryParameters: [URLQueryItem] {
-            
+
             return [URLQueryItem(name: "key", value: APIKeyManager().getValue(key: "GoogleMapKey") as? String),
                     URLQueryItem(name: "query", value: bikeSpotType.rawValue),
                     URLQueryItem(name: "language", value: "ja"),

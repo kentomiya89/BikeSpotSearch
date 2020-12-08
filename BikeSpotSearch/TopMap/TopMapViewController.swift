@@ -25,7 +25,7 @@ class TopMapViewController: UIViewController {
             reSearchButton.isHidden = true
             reSearchButton.layer.cornerRadius = 7.0
             reSearchButton.layer.borderColor = UIColor.black.cgColor
-            reSearchButton.layer.borderWidth = 1.0
+            reSearchButton.layer.borderWidth = 0.7
         }
     }
 
@@ -95,6 +95,9 @@ extension TopMapViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
         // 表示
         reSearchButton.isHidden = false
+        reSearchButton.layer.borderColor = UIColor.black.cgColor
+        reSearchButton.layer.borderWidth = 0.7
+
         // ボタンを最前面へ
         mapView.bringSubviewToFront(reSearchButton)
     }
