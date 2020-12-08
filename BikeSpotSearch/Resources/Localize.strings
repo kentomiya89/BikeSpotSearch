@@ -11,3 +11,7 @@
 
 "BikePark" = "自動二輪駐輪場";
 "BikeShop" = "バイク屋";
+
+"Can't get bike Spot" = "バイク駐輪場・バイクショップの取得に失敗しました。";
+"Not Found bike Spot" = "バイク駐輪場・バイクショップが一つも見つかりませんでした。";
+"OK" = "OK";

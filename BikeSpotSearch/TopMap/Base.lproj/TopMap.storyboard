@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -14,13 +12,30 @@
             <objects>
                 <viewController storyboardIdentifier="TopMapViewController" title="地図画面" id="BYZ-38-t0r" customClass="TopMapViewController" customModule="BikeSpotSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2b-MJ-rXL" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNq-e5-OIl">
+                                        <rect key="frame" x="212.5" y="515" width="175" height="35"/>
+                                        <color key="backgroundColor" red="0.87464145247168334" green="0.86952659017652723" blue="0.87975631476683935" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <state key="normal" title="このエリアで再検索">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="reSearchBikeSpot:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WZO-Yg-MuA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <viewLayoutGuide key="safeArea" id="Jqi-gd-Pbx"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Jqi-gd-Pbx" firstAttribute="bottom" secondItem="UNq-e5-OIl" secondAttribute="bottom" constant="50" id="GDO-1g-FqP"/>
+                                    <constraint firstItem="UNq-e5-OIl" firstAttribute="centerX" secondItem="Jqi-gd-Pbx" secondAttribute="centerX" id="TQ6-OS-eDw"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yQU-EE-5ha"/>
@@ -34,11 +49,12 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="M2b-MJ-rXL" id="AYR-em-BmS"/>
+                        <outlet property="reSearchButton" destination="UNq-e5-OIl" id="0cf-cL-cMa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="48"/>
+            <point key="canvasLocation" x="137.68115942028987" y="47.544642857142854"/>
         </scene>
     </scenes>
     <resources>

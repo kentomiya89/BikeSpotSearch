@@ -11,7 +11,7 @@ import GoogleMaps
 
 protocol TopMapPresenterInput {
     func viewDidLoad()
-
+    func reSeacrhBikeSpot(_ current: CLLocation)
 }
 
 protocol TopMapPresenterOutPut: AnyObject {
@@ -19,6 +19,12 @@ protocol TopMapPresenterOutPut: AnyObject {
     func showCurrentLocation(_ location: CLLocation)
     // バイク駐輪場を表示する
     func showBikeParking(_ bikeParkMarkers: [GMSMarker])
+    // 取得失敗のアラートを表示
+    func showFailBikeSpotAlert(_ message: String)
+    // 地図のマーカーを全て消す
+    func clearAllMarkerOnMap()
+    // 再検索ボタンを非表示
+    func hideReSearchButton()
 }
 
 class TopMapPresenter {
@@ -36,6 +42,31 @@ class TopMapPresenter {
 
 extension TopMapPresenter: TopMapPresenterInput {
 
+    func reSeacrhBikeSpot(_ current: CLLocation) {
+        #if DEMO
+        model.getBikeSpotFromJSONData(current) { [weak self] (result) in
+            // 取得失敗
+            print(result)
+            guard let result = result else {
+                // 再検索の場合はエラーアラートを表示
+                self?.view.showFailBikeSpotAlert(L10n.canTGetBikeSpot)
+                return
+            }
+            self?.makeMarkers(result, current)
+        }
+        #else
+        model.fetchBikeSpot(current) { [weak self] result in
+            // 取得失敗
+            guard let result = result else {
+                // 再検索の場合はエラーアラートを表示
+                self?.view.showFailBikeSpotAlert(L10n.canTGetBikeSpot)
+                return
+            }
+            self?.makeMarkers(result, current)
+        }
+        #endif
+    }
+
     func viewDidLoad() {
         Radar.shared.delegate = self
         Radar.shared.start()
@@ -43,57 +74,70 @@ extension TopMapPresenter: TopMapPresenterInput {
 
     private func requestLocation(_ current: CLLocation) {
         #if DEMO
-        model.getBikeSpotFromJSONData { [weak self] (result) in
+        model.getBikeSpotFromJSONData(current) { [weak self] (result) in
             // 取得失敗
             print(result)
             guard let result = result else { return }
-
-            let bikePark = result[PlaceSearchType.bikePark.rawValue]!
-            self?.makeMarkers(bikePark, current, .bikePark)
-
-            let bikeShop = result[PlaceSearchType.bikeShop.rawValue]!
-            self?.makeMarkers(bikeShop, current, .bikeShop)
+            self?.makeMarkers(result, current)
 
         }
         #else
-        model.fetchBikeSpot { [weak self] result in
+        model.fetchBikeSpot(current) { [weak self] result in
             // 取得失敗
             guard let result = result else { return }
-
-            let bikePark = result[PlaceSearchType.bikePark.rawValue]!
-            self?.makeMarkers(bikePark, current, .bikePark)
-
-            let bikeShop = result[PlaceSearchType.bikeShop.rawValue]!
-            self?.makeMarkers(bikeShop, current, .bikeShop)
+            self?.makeMarkers(result, current)
         }
         #endif
     }
 
     // アイコンを生成する
-    private func makeMarkers(_ bikeSpot: BikeSpot, _ current: CLLocation, _ bikeSpotType: PlaceSearchType) {
+    private func makeMarkers(_ result: [PlaceSearchType: [PlaceResult]] , _ current: CLLocation) {
+        // MARK: TODO もっといいロジックが思いつけば書き直す
 
-        let markerArray: [GMSMarker] = bikeSpot.results.filter {
+        // 駐輪場
+        let bikeParkArray: [GMSMarker] = result[.bikePark]!.filter {
             let position = CLLocationCoordinate2DMake($0.lat, $0.lng)
             let point: CLLocation = CLLocation(latitude: position.latitude, longitude: position.longitude)
 
             return point.distance(from: current) <= LocationRelateNumber.searchRange
         }
-        .map {
-            let position = CLLocationCoordinate2DMake($0.lat, $0.lng)
+        .map { place in
+            let position = CLLocationCoordinate2DMake(place.lat, place.lng)
             let marker = GMSMarker(position: position)
-            switch bikeSpotType {
-            case .bikePark: marker.icon = Asset.bikePark.image
-            case .bikeShop: marker.icon = Asset.bikeShop.image
-            }
-            marker.title = $0.name
+            marker.icon = Asset.bikePark.image
+            marker.title = place.name
+
+            return marker
+        }
+        
+        // バイク屋
+        let bikeShopArray: [GMSMarker] = result[.bikeShop]!.filter {
+            let position = CLLocationCoordinate2DMake($0.lat, $0.lng)
+            let point: CLLocation = CLLocation(latitude: position.latitude, longitude: position.longitude)
+
+            return point.distance(from: current) <= LocationRelateNumber.searchRange
+        }
+        .map { place in
+            let position = CLLocationCoordinate2DMake(place.lat, place.lng)
+            let marker = GMSMarker(position: position)
+
+            marker.icon = Asset.bikeShop.image
+            marker.title = place.name
+
             return marker
         }
 
+        let markerArray = bikeParkArray + bikeShopArray
         // 最寄りに候補が一つもなければ終了
         if markerArray.count == 0 {
+            view.showFailBikeSpotAlert(L10n.notFoundBikeSpot)
             return
         }
 
+        // 新しく表示する前に古いマーカーを消す
+        view.clearAllMarkerOnMap()
+        // 再検索ボタンを非表示にする
+        view.hideReSearchButton()
         view.showBikeParking(markerArray)
     }
 
