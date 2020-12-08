@@ -19,7 +19,7 @@
 		84501900257D37BE006E7BB2 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845018FF257D37BE006E7BB2 /* Strings+Generated.swift */; };
 		84501913257DB83A006E7BB2 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84501912257DB83A006E7BB2 /* MainTabBarController.swift */; };
 		84501954257DF84C006E7BB2 /* bike_shop.json in Resources */ = {isa = PBXBuildFile; fileRef = 84501953257DF84B006E7BB2 /* bike_shop.json */; };
-		845019B2257E6521006E7BB2 /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 845019B1257E6521006E7BB2 /* PKHUD */; };
+		845019B2257E6521006E7BB2 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 845019B1257E6521006E7BB2 /* SwiftPackageProductDependency */; };
 		845019BF257E8BFA006E7BB2 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845019BE257E8BF8006E7BB2 /* Extension.swift */; };
 		8467CA92257753F9009A1E14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CA91257753F9009A1E14 /* AppDelegate.swift */; };
 		8467CA96257753F9009A1E14 /* TopMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CA95257753F9009A1E14 /* TopMapViewController.swift */; };
@@ -28,7 +28,7 @@
 		8467CA9E257753FE009A1E14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8467CA9C257753FE009A1E14 /* LaunchScreen.storyboard */; };
 		8467CAA9257753FE009A1E14 /* BikeSpotSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CAA8257753FE009A1E14 /* BikeSpotSearchTests.swift */; };
 		8467CAB4257753FE009A1E14 /* BikeSpotSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467CAB3257753FE009A1E14 /* BikeSpotSearchUITests.swift */; };
-		8474207D2578BFDE0038B829 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8474207C2578BFDE0038B829 /* Alamofire */; };
+		8474207D2578BFDE0038B829 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 8474207C2578BFDE0038B829 /* SwiftPackageProductDependency */; };
 		8474208325792B370038B829 /* TopMapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474208225792B370038B829 /* TopMapPresenter.swift */; };
 		84742088257935B00038B829 /* TopMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84742087257935B00038B829 /* TopMapModel.swift */; };
 		8474209925793BB00038B829 /* GMRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474209825793BB00038B829 /* GMRequest.swift */; };
@@ -115,9 +115,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				845019B2257E6521006E7BB2 /* PKHUD in Frameworks */,
+				845019B2257E6521006E7BB2 /* BuildFile in Frameworks */,
 				814798C60C23B19B5D6E0D81 /* Pods_BikeSpotSearch.framework in Frameworks */,
-				8474207D2578BFDE0038B829 /* Alamofire in Frameworks */,
+				8474207D2578BFDE0038B829 /* BuildFile in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,13 +320,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8467CAB8257753FE009A1E14 /* Build configuration list for PBXNativeTarget "BikeSpotSearch" */;
 			buildPhases = (
-				845018CA257D1884006E7BB2 /* SwiftGen */,
 				0321BEF26AA855B5952AA3E3 /* [CP] Check Pods Manifest.lock */,
+				845018CA257D1884006E7BB2 /* SwiftGen */,
 				8467CA8A257753F9009A1E14 /* Sources */,
 				8467CA8B257753F9009A1E14 /* Frameworks */,
 				8467CA8C257753F9009A1E14 /* Resources */,
 				8467CAE025779397009A1E14 /* SwiftLint */,
 				5DEE58A9D02B9CF507DDD75D /* [CP] Copy Pods Resources */,
+				61EE61F28F324B68108B8122 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -334,8 +335,8 @@
 			);
 			name = BikeSpotSearch;
 			packageProductDependencies = (
-				8474207C2578BFDE0038B829 /* Alamofire */,
-				845019B1257E6521006E7BB2 /* PKHUD */,
+				8474207C2578BFDE0038B829 /* SwiftPackageProductDependency */,
+				845019B1257E6521006E7BB2 /* SwiftPackageProductDependency */,
 			);
 			productName = BikeSpotSearch;
 			productReference = 8467CA8E257753F9009A1E14 /* BikeSpotSearch.app */;
@@ -369,6 +370,7 @@
 				8467CAAC257753FE009A1E14 /* Frameworks */,
 				8467CAAD257753FE009A1E14 /* Resources */,
 				07243097C2F16CE247FEBE3B /* [CP] Copy Pods Resources */,
+				3B7EE063B8C811C7B650FE39 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -412,8 +414,8 @@
 			);
 			mainGroup = 8467CA85257753F9009A1E14;
 			packageReferences = (
-				8474207B2578BFDE0038B829 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				845019B0257E6520006E7BB2 /* XCRemoteSwiftPackageReference "PKHUD" */,
+				8474207B2578BFDE0038B829 /* RemoteSwiftPackageReference */,
+				845019B0257E6520006E7BB2 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 8467CA8F257753F9009A1E14 /* Products */;
 			projectDirPath = "";
@@ -498,6 +500,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BikeSpotSearch-BikeSpotSearchUITests/Pods-BikeSpotSearch-BikeSpotSearchUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3B7EE063B8C811C7B650FE39 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BikeSpotSearch-BikeSpotSearchUITests/Pods-BikeSpotSearch-BikeSpotSearchUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BikeSpotSearch-BikeSpotSearchUITests/Pods-BikeSpotSearch-BikeSpotSearchUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BikeSpotSearch-BikeSpotSearchUITests/Pods-BikeSpotSearch-BikeSpotSearchUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5DEE58A9D02B9CF507DDD75D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -513,6 +532,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BikeSpotSearch/Pods-BikeSpotSearch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61EE61F28F324B68108B8122 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BikeSpotSearch/Pods-BikeSpotSearch-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BikeSpotSearch/Pods-BikeSpotSearch-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BikeSpotSearch/Pods-BikeSpotSearch-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		845018CA257D1884006E7BB2 /* SwiftGen */ = {
@@ -1092,7 +1128,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		845019B0257E6520006E7BB2 /* XCRemoteSwiftPackageReference "PKHUD" */ = {
+		845019B0257E6520006E7BB2 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pkluz/PKHUD.git";
 			requirement = {
@@ -1100,7 +1136,7 @@
 				minimumVersion = 5.4.0;
 			};
 		};
-		8474207B2578BFDE0038B829 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		8474207B2578BFDE0038B829 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
@@ -1111,14 +1147,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		845019B1257E6521006E7BB2 /* PKHUD */ = {
+		845019B1257E6521006E7BB2 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 845019B0257E6520006E7BB2 /* XCRemoteSwiftPackageReference "PKHUD" */;
+			package = 845019B0257E6520006E7BB2 /* RemoteSwiftPackageReference */;
 			productName = PKHUD;
 		};
-		8474207C2578BFDE0038B829 /* Alamofire */ = {
+		8474207C2578BFDE0038B829 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8474207B2578BFDE0038B829 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 8474207B2578BFDE0038B829 /* RemoteSwiftPackageReference */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
