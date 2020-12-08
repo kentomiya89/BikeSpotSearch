@@ -4,7 +4,11 @@
 
 ## API key 
 apiKey.plist
-place_search.json
+bike_park.json
+bike_shop.json
+
+## SwiftGen
+Generated/
 
 ## User settings
 xcuserdata/

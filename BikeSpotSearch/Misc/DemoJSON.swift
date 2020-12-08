@@ -9,10 +9,15 @@ import Foundation
 
 struct DemoJSON {
 
-    private let placeSearchPath = Bundle.main.path(forResource: "place_search", ofType: "json")
+    private let bikeParkJsonPath = Bundle.main.path(forResource: "bike_park", ofType: "json")
+    private let bikeShopJsonPath = Bundle.main.path(forResource: "bike_shop", ofType: "json")
 
-    func getPlaceSearchJSON() -> Data? {
-        return getData(placeSearchPath!)
+    func getBikeParkJSON() -> Data? {
+        return getData(bikeParkJsonPath!)
+    }
+
+    func getBikeShopJSON() -> Data? {
+        return getData(bikeShopJsonPath!)
     }
 
     private func getData(_ path: String) -> Data? {
