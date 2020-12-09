@@ -16,6 +16,8 @@
 		842DABBB2580C4EB0028D4B9 /* MyBikeParkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DABBA2580C4EA0028D4B9 /* MyBikeParkListViewController.swift */; };
 		842DABC32580C9110028D4B9 /* MyBikeParkListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DABC22580C9100028D4B9 /* MyBikeParkListPresenter.swift */; };
 		842DABC82580C9520028D4B9 /* MyBikeParkListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DABC72580C9510028D4B9 /* MyBikeParkListModel.swift */; };
+		842DABCE2580F8EE0028D4B9 /* MarkerInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842DABCD2580F8ED0028D4B9 /* MarkerInfo.xib */; };
+		842DABD62580F9B30028D4B9 /* MarkerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DABD52580F9B30028D4B9 /* MarkerInfoView.swift */; };
 		8431A2AB257CA25D00AEC5D0 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431A2AA257CA25D00AEC5D0 /* Define.swift */; };
 		845018EB257D241B006E7BB2 /* IB-Segues+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845018E8257D241B006E7BB2 /* IB-Segues+Generated.swift */; };
 		845018EC257D241B006E7BB2 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845018E9257D241B006E7BB2 /* XCAssets+Generated.swift */; };
@@ -78,6 +80,8 @@
 		842DABBA2580C4EA0028D4B9 /* MyBikeParkListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeParkListViewController.swift; sourceTree = "<group>"; };
 		842DABC22580C9100028D4B9 /* MyBikeParkListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeParkListPresenter.swift; sourceTree = "<group>"; };
 		842DABC72580C9510028D4B9 /* MyBikeParkListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeParkListModel.swift; sourceTree = "<group>"; };
+		842DABCD2580F8ED0028D4B9 /* MarkerInfo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarkerInfo.xib; sourceTree = "<group>"; };
+		842DABD52580F9B30028D4B9 /* MarkerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerInfoView.swift; sourceTree = "<group>"; };
 		8431A2AA257CA25D00AEC5D0 /* Define.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		845018E8257D241B006E7BB2 /* IB-Segues+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IB-Segues+Generated.swift"; sourceTree = "<group>"; };
 		845018E9257D241B006E7BB2 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
@@ -187,6 +191,15 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		842DABCC2580F8330028D4B9 /* MarkerInfo */ = {
+			isa = PBXGroup;
+			children = (
+				842DABCD2580F8ED0028D4B9 /* MarkerInfo.xib */,
+				842DABD52580F9B30028D4B9 /* MarkerInfoView.swift */,
+			);
+			path = MarkerInfo;
+			sourceTree = "<group>";
+		};
 		845018E7257D241B006E7BB2 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +286,7 @@
 		8474208F257939370038B829 /* TopMap */ = {
 			isa = PBXGroup;
 			children = (
+				842DABCC2580F8330028D4B9 /* MarkerInfo */,
 				8467CA95257753F9009A1E14 /* TopMapViewController.swift */,
 				8474208225792B370038B829 /* TopMapPresenter.swift */,
 				84742087257935B00038B829 /* TopMapModel.swift */,
@@ -461,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84501954257DF84C006E7BB2 /* bike_shop.json in Resources */,
+				842DABCE2580F8EE0028D4B9 /* MarkerInfo.xib in Resources */,
 				8467CA9E257753FE009A1E14 /* LaunchScreen.storyboard in Resources */,
 				847420F7257B43990038B829 /* bike_park.json in Resources */,
 				8480A14D25779E0E009C9E29 /* apiKey.plist in Resources */,
@@ -680,6 +695,7 @@
 				845018ED257D241B006E7BB2 /* IB-Scenes+Generated.swift in Sources */,
 				8431A2AB257CA25D00AEC5D0 /* Define.swift in Sources */,
 				84742088257935B00038B829 /* TopMapModel.swift in Sources */,
+				842DABD62580F9B30028D4B9 /* MarkerInfoView.swift in Sources */,
 				847420A9257A42B50038B829 /* GMAPI.swift in Sources */,
 				84501900257D37BE006E7BB2 /* Strings+Generated.swift in Sources */,
 				845019BF257E8BFA006E7BB2 /* Extension.swift in Sources */,

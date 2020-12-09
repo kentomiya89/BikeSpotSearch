@@ -47,6 +47,14 @@ class TopMapViewController: UIViewController {
         return alert
     }
 
+    var markerInfoView: MarkerInfoView {
+        let view = UINib(nibName: NibFileIdentifier.markerInfo, bundle: nil)
+            .instantiate(withOwner: nil, options: nil)
+            .first as! MarkerInfoView
+        view.layer.cornerRadius = 20
+        return view
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter = TopMapPresenter(view: self)
@@ -118,7 +126,7 @@ extension TopMapViewController: TopMapPresenterOutPut {
 
             let marker = GMSMarker(position: coordinate)
             marker.title = text
-            marker.userData = L10n.myBikePark
+            marker.snippet = L10n.myBikeParkTab
             marker.map = self?.mapView
             self?.presenter.addMyBikeParkDB(text, coordinate)
         }
@@ -154,5 +162,18 @@ extension TopMapViewController: GMSMapViewDelegate {
 
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
         presenter.didLongPress(coordinate: coordinate)
+    }
+
+    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+
+        let markerInfo = markerInfoView
+        markerInfo.spotName.text = marker.title
+
+        if let snippet = marker.snippet {
+            markerInfo.opening.text = snippet
+            markerInfo.opening.textColor = presenter.infoViewInTextColor(snippet: snippet)
+        }
+
+        return markerInfo
     }
 }

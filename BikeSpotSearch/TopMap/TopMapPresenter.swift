@@ -14,6 +14,7 @@ protocol TopMapPresenterInput {
     func reSeacrhBikeSpot(_ current: CLLocation)
     func didLongPress(coordinate: CLLocationCoordinate2D)
     func addMyBikeParkDB(_ name: String, _ coordinate: CLLocationCoordinate2D)
+    func infoViewInTextColor(snippet: String) -> UIColor
 }
 
 protocol TopMapPresenterOutPut: AnyObject {
@@ -85,6 +86,16 @@ extension TopMapPresenter: TopMapPresenterInput {
         model.addMyBikeParkDB(name, coordinate)
     }
 
+    func infoViewInTextColor(snippet: String) -> UIColor {
+        if snippet == L10n.opening {
+            return UIColor.blue
+        } else if snippet == L10n.closing {
+            return UIColor.red
+        } else {
+            return UIColor.black
+        }
+    }
+
     // MARK: プライベートメソッド
     private func requestLocation(_ current: CLLocation) {
         #if DEMO
@@ -118,6 +129,13 @@ extension TopMapPresenter: TopMapPresenterInput {
             let position = CLLocationCoordinate2DMake(place.lat, place.lng)
             let marker = GMSMarker(position: position)
             marker.icon = Asset.bikePark.image
+            
+            if let openingNow = place.openingNow {
+                marker.snippet = openingNow ? L10n.opening : L10n.closing
+            } else {
+                marker.snippet = L10n.unknown
+            }
+
             marker.title = place.name
 
             return marker
@@ -136,6 +154,12 @@ extension TopMapPresenter: TopMapPresenterInput {
 
             marker.icon = Asset.bikeShop.image
             marker.title = place.name
+
+            if let openingNow = place.openingNow {
+                marker.snippet = openingNow ? L10n.opening : L10n.closing
+            } else {
+                marker.snippet = L10n.unknown
+            }
 
             return marker
         }

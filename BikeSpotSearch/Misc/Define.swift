@@ -27,3 +27,7 @@ enum PlaceSearchType: String {
         }
     }
 }
+
+struct NibFileIdentifier {
+    static let markerInfo = "MarkerInfo"
+}
