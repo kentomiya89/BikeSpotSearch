@@ -13,6 +13,7 @@ protocol TopMapPresenterInput {
     func viewDidLoad()
     func reSeacrhBikeSpot(_ current: CLLocation)
     func didLongPress(coordinate: CLLocationCoordinate2D)
+    func addMyBikeParkDB(_ name: String, _ coordinate: CLLocationCoordinate2D)
 }
 
 protocol TopMapPresenterOutPut: AnyObject {
@@ -45,6 +46,7 @@ class TopMapPresenter {
 
 extension TopMapPresenter: TopMapPresenterInput {
 
+    // MARK: プロトコルメソッド
     func viewDidLoad() {
         Radar.shared.delegate = self
         Radar.shared.start()
@@ -74,11 +76,16 @@ extension TopMapPresenter: TopMapPresenterInput {
         }
         #endif
     }
-    
+
     func didLongPress(coordinate: CLLocationCoordinate2D) {
         view.showMyBikeParkEditAlert(coordinate)
     }
 
+    func addMyBikeParkDB(_ name: String, _ coordinate: CLLocationCoordinate2D) {
+        model.addMyBikeParkDB(name, coordinate)
+    }
+
+    // MARK: プライベートメソッド
     private func requestLocation(_ current: CLLocation) {
         #if DEMO
         model.getBikeSpotFromJSONData(current) { [weak self] (result) in
@@ -86,7 +93,6 @@ extension TopMapPresenter: TopMapPresenterInput {
             print(result)
             guard let result = result else { return }
             self?.makeMarkers(result, current)
-
         }
         #else
         model.fetchBikeSpot(current) { [weak self] result in
@@ -143,11 +149,23 @@ extension TopMapPresenter: TopMapPresenterInput {
 
         // 新しく表示する前に古いマーカーを消す
         view.clearAllMarkerOnMap()
+
+        showMyBikePark()
         // 再検索ボタンを非表示にする
         view.hideReSearchButton()
         view.showBikeParking(markerArray)
     }
 
+    private func showMyBikePark() {
+        let myBikeParks = model.fetchMyBikeParks()
+        let marker: [GMSMarker] = myBikeParks.map() {
+            let coordinate = CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.lon)
+            let marker = GMSMarker(position: coordinate)
+            marker.title = $0.name
+            return marker
+        }
+        view.showBikeParking(marker)
+    }
 }
 
 extension TopMapPresenter: RaderDelgate {

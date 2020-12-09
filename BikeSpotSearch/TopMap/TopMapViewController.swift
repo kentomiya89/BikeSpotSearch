@@ -112,13 +112,14 @@ extension TopMapViewController: TopMapPresenterOutPut {
         // MARK: TODO ハンドラーの中身にあとでrealmで保存する仕組みを入れる
         let okAction = UIAlertAction(title: L10n.ok,
                                    style: .default) { [weak self] _ in
-            guard let textFields = alert.textFields else { return }
-            guard !textFields.isEmpty else { return }
+            guard let textFields = alert.textFields,
+                  let text = textFields.first?.text else { return }
 
             let marker = GMSMarker(position: coordinate)
-            marker.title = textFields.first?.text
+            marker.title = text
             marker.userData = L10n.myBikePark
             marker.map = self?.mapView
+            self?.presenter.addMyBikeParkDB(text, coordinate)
         }
 
         alert.addAction(okAction)
