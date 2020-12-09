@@ -13,6 +13,9 @@
 		842DABA2258087BA0028D4B9 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 842DABA1258087BA0028D4B9 /* RealmSwift */; };
 		842DABA825808FB70028D4B9 /* MyBikePark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DABA725808FB70028D4B9 /* MyBikePark.swift */; };
 		842DABAD258091930028D4B9 /* MyBikeParkAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DABAC258091930028D4B9 /* MyBikeParkAccessor.swift */; };
+		842DABBB2580C4EB0028D4B9 /* MyBikeParkListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DABBA2580C4EA0028D4B9 /* MyBikeParkListViewController.swift */; };
+		842DABC32580C9110028D4B9 /* MyBikeParkListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DABC22580C9100028D4B9 /* MyBikeParkListPresenter.swift */; };
+		842DABC82580C9520028D4B9 /* MyBikeParkListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DABC72580C9510028D4B9 /* MyBikeParkListModel.swift */; };
 		8431A2AB257CA25D00AEC5D0 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431A2AA257CA25D00AEC5D0 /* Define.swift */; };
 		845018EB257D241B006E7BB2 /* IB-Segues+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845018E8257D241B006E7BB2 /* IB-Segues+Generated.swift */; };
 		845018EC257D241B006E7BB2 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845018E9257D241B006E7BB2 /* XCAssets+Generated.swift */; };
@@ -72,6 +75,9 @@
 		6981869155D19FE68BF1106C /* Pods-BikeSpotSearch-BikeSpotSearchUITests.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BikeSpotSearch-BikeSpotSearchUITests.demo.xcconfig"; path = "Target Support Files/Pods-BikeSpotSearch-BikeSpotSearchUITests/Pods-BikeSpotSearch-BikeSpotSearchUITests.demo.xcconfig"; sourceTree = "<group>"; };
 		842DABA725808FB70028D4B9 /* MyBikePark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikePark.swift; sourceTree = "<group>"; };
 		842DABAC258091930028D4B9 /* MyBikeParkAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeParkAccessor.swift; sourceTree = "<group>"; };
+		842DABBA2580C4EA0028D4B9 /* MyBikeParkListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeParkListViewController.swift; sourceTree = "<group>"; };
+		842DABC22580C9100028D4B9 /* MyBikeParkListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeParkListPresenter.swift; sourceTree = "<group>"; };
+		842DABC72580C9510028D4B9 /* MyBikeParkListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeParkListModel.swift; sourceTree = "<group>"; };
 		8431A2AA257CA25D00AEC5D0 /* Define.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		845018E8257D241B006E7BB2 /* IB-Segues+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IB-Segues+Generated.swift"; sourceTree = "<group>"; };
 		845018E9257D241B006E7BB2 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
@@ -195,6 +201,9 @@
 		845018F1257D3361006E7BB2 /* MyBikeParkList */ = {
 			isa = PBXGroup;
 			children = (
+				842DABBA2580C4EA0028D4B9 /* MyBikeParkListViewController.swift */,
+				842DABC22580C9100028D4B9 /* MyBikeParkListPresenter.swift */,
+				842DABC72580C9510028D4B9 /* MyBikeParkListModel.swift */,
 				845018F2257D33E1006E7BB2 /* MyBikeParkList.storyboard */,
 			);
 			path = MyBikeParkList;
@@ -656,9 +665,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				842DABC82580C9520028D4B9 /* MyBikeParkListModel.swift in Sources */,
 				845018EC257D241B006E7BB2 /* XCAssets+Generated.swift in Sources */,
 				847420FC257B48320038B829 /* DemoJSON.swift in Sources */,
+				842DABC32580C9110028D4B9 /* MyBikeParkListPresenter.swift in Sources */,
 				84501913257DB83A006E7BB2 /* MainTabBarController.swift in Sources */,
+				842DABBB2580C4EB0028D4B9 /* MyBikeParkListViewController.swift in Sources */,
 				8474208325792B370038B829 /* TopMapPresenter.swift in Sources */,
 				847420AF257A45CC0038B829 /* BikeSpot.swift in Sources */,
 				8474209925793BB00038B829 /* GMRequest.swift in Sources */,

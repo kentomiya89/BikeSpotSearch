@@ -8,10 +8,12 @@
 import Foundation
 
 struct LocationRelateNumber {
-
     static let searchRange = 3000.0
-
     static let zoomValue = 14.0
+}
+
+struct TableViewCellIdentifier {
+    static let myBikeParkCell = "MyBikeParkCell"
 }
 
 enum PlaceSearchType: String {
