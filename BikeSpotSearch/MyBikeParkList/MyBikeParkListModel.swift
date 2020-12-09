@@ -25,6 +25,8 @@ extension MyBikeParkListModel: MyBikeParkListModelOutput {
     func removeMyBikePark(bikePark: MyBikePark) {
         do {
             try myBikeParkAccessor.delete(bikePark)
+            // 削除したことを通知する
+            NotificationCenter.default.post(name: .removeMyBikePark, object: nil)
         } catch {
             print(error.localizedDescription)
         }

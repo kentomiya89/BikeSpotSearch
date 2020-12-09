@@ -73,7 +73,7 @@ class TopMapViewController: UIViewController {
 }
 
 extension TopMapViewController: TopMapPresenterOutPut {
-
+    
     private func failAlert(_ message: String) -> UIAlertController {
         let alertController =
                     UIAlertController(title: "",

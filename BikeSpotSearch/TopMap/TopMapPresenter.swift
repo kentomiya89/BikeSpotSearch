@@ -37,6 +37,8 @@ class TopMapPresenter {
     private weak var view: TopMapPresenterOutPut!
     private var model: TopMapModelOutput
     private var didShowCurrent: Bool = false
+    private var myBikeParkMarkerArray: [GMSMarker] = []
+    private var bikeSpotMarkerArray: [GMSMarker] = []
 
     init(view: TopMapPresenterOutPut) {
         self.view = view
@@ -51,6 +53,9 @@ extension TopMapPresenter: TopMapPresenterInput {
     func viewDidLoad() {
         Radar.shared.delegate = self
         Radar.shared.start()
+
+        // 通知を登録
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshMarkerData), name: .removeMyBikePark, object: nil)
     }
 
     func reSeacrhBikeSpot(_ current: CLLocation) {
@@ -170,7 +175,10 @@ extension TopMapPresenter: TopMapPresenterInput {
             view.showFailBikeSpotAlert(L10n.notFoundBikeSpot)
             return
         }
-
+            
+        // バイクスポットマーカーを保存
+        bikeSpotMarkerArray = markerArray
+        
         // 新しく表示する前に古いマーカーを消す
         view.clearAllMarkerOnMap()
 
@@ -181,14 +189,31 @@ extension TopMapPresenter: TopMapPresenterInput {
     }
 
     private func showMyBikePark() {
-        let myBikeParks = model.fetchMyBikeParks()
-        let marker: [GMSMarker] = myBikeParks.map() {
+        let marker = makeMyBikeParkMarker(model.fetchMyBikeParks())
+        // My駐輪場を更新
+        myBikeParkMarkerArray = marker
+        view.showBikeParking(marker)
+    }
+    
+    @objc private func refreshMarkerData() {
+        // My駐輪場を更新
+        myBikeParkMarkerArray = makeMyBikeParkMarker(model.fetchMyBikeParks())
+        // 一度全てマーカーを削除
+        view.clearAllMarkerOnMap()
+        // My駐輪場を表示
+        view.showBikeParking(myBikeParkMarkerArray)
+        // バイク駐輪場とバイク屋を表示
+        view.showBikeParking(bikeSpotMarkerArray)
+    }
+    
+    private func makeMyBikeParkMarker(_ myBikeParkArray: [MyBikePark]) -> [GMSMarker] {
+        let marker: [GMSMarker] = myBikeParkArray.map() {
             let coordinate = CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.lon)
             let marker = GMSMarker(position: coordinate)
             marker.title = $0.name
             return marker
         }
-        view.showBikeParking(marker)
+        return marker
     }
 }
 
