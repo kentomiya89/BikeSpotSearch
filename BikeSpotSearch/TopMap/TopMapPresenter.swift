@@ -12,6 +12,7 @@ import GoogleMaps
 protocol TopMapPresenterInput {
     func viewDidLoad()
     func reSeacrhBikeSpot(_ current: CLLocation)
+    func didLongPress(coordinate: CLLocationCoordinate2D)
 }
 
 protocol TopMapPresenterOutPut: AnyObject {
@@ -25,6 +26,8 @@ protocol TopMapPresenterOutPut: AnyObject {
     func clearAllMarkerOnMap()
     // 再検索ボタンを非表示
     func hideReSearchButton()
+    // 追加する
+    func showMyBikeParkEditAlert(_ coordinate: CLLocationCoordinate2D)
 }
 
 class TopMapPresenter {
@@ -41,6 +44,11 @@ class TopMapPresenter {
 }
 
 extension TopMapPresenter: TopMapPresenterInput {
+
+    func viewDidLoad() {
+        Radar.shared.delegate = self
+        Radar.shared.start()
+    }
 
     func reSeacrhBikeSpot(_ current: CLLocation) {
         #if DEMO
@@ -66,10 +74,9 @@ extension TopMapPresenter: TopMapPresenterInput {
         }
         #endif
     }
-
-    func viewDidLoad() {
-        Radar.shared.delegate = self
-        Radar.shared.start()
+    
+    func didLongPress(coordinate: CLLocationCoordinate2D) {
+        view.showMyBikeParkEditAlert(coordinate)
     }
 
     private func requestLocation(_ current: CLLocation) {
@@ -109,7 +116,7 @@ extension TopMapPresenter: TopMapPresenterInput {
 
             return marker
         }
-        
+
         // バイク屋
         let bikeShopArray: [GMSMarker] = result[.bikeShop]!.filter {
             let position = CLLocationCoordinate2DMake($0.lat, $0.lng)

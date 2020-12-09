@@ -31,6 +31,22 @@ class TopMapViewController: UIViewController {
 
     private var presenter: TopMapPresenterInput!
 
+    // 追加用のアラート
+    var addMyBikeParkAlert: UIAlertController {
+        let alert = UIAlertController(title: nil,
+                                      message: L10n.addMyBicycleParkingToThisPosition,
+                                      preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: L10n.cancel,
+                                         style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+
+        alert.addTextField { (text) in
+            text.placeholder = L10n.pleaseInputParkName
+        }
+
+        return alert
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter = TopMapPresenter(view: self)
@@ -88,6 +104,27 @@ extension TopMapViewController: TopMapPresenterOutPut {
     func hideReSearchButton() {
         reSearchButton.isHidden = true
     }
+
+    func showMyBikeParkEditAlert(_ coordinate: CLLocationCoordinate2D) {
+
+        let alert = addMyBikeParkAlert
+
+        // MARK: TODO ハンドラーの中身にあとでrealmで保存する仕組みを入れる
+        let okAction = UIAlertAction(title: L10n.ok,
+                                   style: .default) { [weak self] _ in
+            guard let textFields = alert.textFields else { return }
+            guard !textFields.isEmpty else { return }
+
+            let marker = GMSMarker(position: coordinate)
+            marker.title = textFields.first?.text
+            marker.userData = L10n.myBikePark
+            marker.map = self?.mapView
+        }
+
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+
 }
 
 extension TopMapViewController: GMSMapViewDelegate {
@@ -100,5 +137,9 @@ extension TopMapViewController: GMSMapViewDelegate {
 
         // ボタンを最前面へ
         mapView.bringSubviewToFront(reSearchButton)
+    }
+
+    func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
+        presenter.didLongPress(coordinate: coordinate)
     }
 }

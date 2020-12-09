@@ -15,3 +15,8 @@
 "Can't get bike Spot" = "バイク駐輪場・バイクショップの取得に失敗しました。";
 "Not Found bike Spot" = "バイク駐輪場・バイクショップが一つも見つかりませんでした。";
 "OK" = "OK";
+"Cancel" = "キャンセル";
+
+"Add My Bicycle Parking to this position?" = "この位置にMy駐輪場を追加しますか？";
+"Please input park name" = "駐輪場名を入力してください。";
+"My bike Park" = "My bike Park";
