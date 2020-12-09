@@ -106,10 +106,11 @@ extension TopMapViewController: TopMapPresenterOutPut {
     }
 
     func showMyBikeParkEditAlert(_ coordinate: CLLocationCoordinate2D) {
+        present(makeMyBikeParkEditAlert(coordinate), animated: true, completion: nil)
+    }
 
+    private func makeMyBikeParkEditAlert(_ coordinate: CLLocationCoordinate2D) -> UIAlertController {
         let alert = addMyBikeParkAlert
-
-        // MARK: TODO ハンドラーの中身にあとでrealmで保存する仕組みを入れる
         let okAction = UIAlertAction(title: L10n.ok,
                                    style: .default) { [weak self] _ in
             guard let textFields = alert.textFields,
@@ -121,9 +122,20 @@ extension TopMapViewController: TopMapPresenterOutPut {
             marker.map = self?.mapView
             self?.presenter.addMyBikeParkDB(text, coordinate)
         }
+        okAction.isEnabled = false
 
+        let textField = alert.textFields?.first
+        NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification,
+                                               object: textField,
+                                               queue: OperationQueue.main) {_ in
+            let textCount = textField?.text?.trimmingCharacters(in: .whitespacesAndNewlines).count ?? 0
+            let isTextNotEmpty = textCount > 0
+            // アラートテキストの入力に応じてOKボタンを有効にするか変更
+            okAction.isEnabled = isTextNotEmpty
+        }
         alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
+
+        return alert
     }
 
 }
