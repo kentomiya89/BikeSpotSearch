@@ -31,3 +31,7 @@ enum PlaceSearchType: String {
 struct NibFileIdentifier {
     static let markerInfo = "MarkerInfo"
 }
+
+struct RealmDefine {
+    static let sheamaVersion: UInt64 = 0
+}

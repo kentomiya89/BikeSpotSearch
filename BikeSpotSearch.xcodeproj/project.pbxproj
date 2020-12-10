@@ -18,6 +18,7 @@
 		842DABC82580C9520028D4B9 /* MyBikeParkListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DABC72580C9510028D4B9 /* MyBikeParkListModel.swift */; };
 		842DABCE2580F8EE0028D4B9 /* MarkerInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842DABCD2580F8ED0028D4B9 /* MarkerInfo.xib */; };
 		842DABD62580F9B30028D4B9 /* MarkerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DABD52580F9B30028D4B9 /* MarkerInfoView.swift */; };
+		842DAC102581D1470028D4B9 /* Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DAC0F2581D1460028D4B9 /* Migration.swift */; };
 		8431A2AB257CA25D00AEC5D0 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431A2AA257CA25D00AEC5D0 /* Define.swift */; };
 		845018EB257D241B006E7BB2 /* IB-Segues+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845018E8257D241B006E7BB2 /* IB-Segues+Generated.swift */; };
 		845018EC257D241B006E7BB2 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845018E9257D241B006E7BB2 /* XCAssets+Generated.swift */; };
@@ -82,6 +83,7 @@
 		842DABC72580C9510028D4B9 /* MyBikeParkListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeParkListModel.swift; sourceTree = "<group>"; };
 		842DABCD2580F8ED0028D4B9 /* MarkerInfo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarkerInfo.xib; sourceTree = "<group>"; };
 		842DABD52580F9B30028D4B9 /* MarkerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerInfoView.swift; sourceTree = "<group>"; };
+		842DAC0F2581D1460028D4B9 /* Migration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
 		8431A2AA257CA25D00AEC5D0 /* Define.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
 		845018E8257D241B006E7BB2 /* IB-Segues+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IB-Segues+Generated.swift"; sourceTree = "<group>"; };
 		845018E9257D241B006E7BB2 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			children = (
 				842DABAC258091930028D4B9 /* MyBikeParkAccessor.swift */,
 				842DABA725808FB70028D4B9 /* MyBikePark.swift */,
+				842DAC0F2581D1460028D4B9 /* Migration.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -682,6 +685,7 @@
 			files = (
 				842DABC82580C9520028D4B9 /* MyBikeParkListModel.swift in Sources */,
 				845018EC257D241B006E7BB2 /* XCAssets+Generated.swift in Sources */,
+				842DAC102581D1470028D4B9 /* Migration.swift in Sources */,
 				847420FC257B48320038B829 /* DemoJSON.swift in Sources */,
 				842DABC32580C9110028D4B9 /* MyBikeParkListPresenter.swift in Sources */,
 				84501913257DB83A006E7BB2 /* MainTabBarController.swift in Sources */,
