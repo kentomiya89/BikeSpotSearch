@@ -9,7 +9,7 @@ import UIKit
 
 enum TabTag: Int {
     case map = 1
-    case other = 2
+    case mybikePark = 2
 }
 
 class MainTabBarController: UITabBarController {
@@ -22,11 +22,11 @@ class MainTabBarController: UITabBarController {
         topMap.tabBarItem = UITabBarItem(title: L10n.map, image: Asset.map.image, tag: TabTag.map.rawValue)
         let mapNavi = UINavigationController(rootViewController: topMap)
 
-        // その他タブ
-        let other = StoryboardScene.Other.initialScene.instantiate()
-        other.tabBarItem = UITabBarItem(title: L10n.other, image: Asset.other.image, tag: TabTag.other.rawValue)
-        let otherNavi = UINavigationController(rootViewController: other)
+        // My駐輪場タブ
+        let myBikePark = StoryboardScene.MyBikeParkList.initialScene.instantiate()
+        myBikePark.tabBarItem = UITabBarItem(title: L10n.myBikeParkTab, image: Asset.myBikePark.image, tag: TabTag.mybikePark.rawValue)
+        let myBikeParkNavi = UINavigationController(rootViewController: myBikePark)
 
-        self.viewControllers = [mapNavi, otherNavi]
+        self.viewControllers = [mapNavi, myBikeParkNavi]
     }
 }

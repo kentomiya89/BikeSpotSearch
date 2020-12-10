@@ -31,6 +31,30 @@ class TopMapViewController: UIViewController {
 
     private var presenter: TopMapPresenterInput!
 
+    // 追加用のアラート
+    var addMyBikeParkAlert: UIAlertController {
+        let alert = UIAlertController(title: nil,
+                                      message: L10n.addMyBicycleParkingToThisPosition,
+                                      preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: L10n.cancel,
+                                         style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+
+        alert.addTextField { (text) in
+            text.placeholder = L10n.pleaseInputParkName
+        }
+
+        return alert
+    }
+
+    var markerInfoView: MarkerInfoView {
+        let view = UINib(nibName: NibFileIdentifier.markerInfo, bundle: nil)
+            .instantiate(withOwner: nil, options: nil)
+            .first as! MarkerInfoView
+        view.layer.cornerRadius = 20
+        return view
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter = TopMapPresenter(view: self)
@@ -49,7 +73,7 @@ class TopMapViewController: UIViewController {
 }
 
 extension TopMapViewController: TopMapPresenterOutPut {
-
+    
     private func failAlert(_ message: String) -> UIAlertController {
         let alertController =
                     UIAlertController(title: "",
@@ -88,6 +112,40 @@ extension TopMapViewController: TopMapPresenterOutPut {
     func hideReSearchButton() {
         reSearchButton.isHidden = true
     }
+
+    func showMyBikeParkEditAlert(_ coordinate: CLLocationCoordinate2D) {
+        present(makeMyBikeParkEditAlert(coordinate), animated: true, completion: nil)
+    }
+
+    private func makeMyBikeParkEditAlert(_ coordinate: CLLocationCoordinate2D) -> UIAlertController {
+        let alert = addMyBikeParkAlert
+        let okAction = UIAlertAction(title: L10n.ok,
+                                   style: .default) { [weak self] _ in
+            guard let textFields = alert.textFields,
+                  let text = textFields.first?.text else { return }
+
+            let marker = GMSMarker(position: coordinate)
+            marker.title = text
+            marker.snippet = L10n.myBikeParkTab
+            marker.map = self?.mapView
+            self?.presenter.addMyBikeParkDB(text, coordinate)
+        }
+        okAction.isEnabled = false
+
+        let textField = alert.textFields?.first
+        NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification,
+                                               object: textField,
+                                               queue: OperationQueue.main) {_ in
+            let textCount = textField?.text?.trimmingCharacters(in: .whitespacesAndNewlines).count ?? 0
+            let isTextNotEmpty = textCount > 0
+            // アラートテキストの入力に応じてOKボタンを有効にするか変更
+            okAction.isEnabled = isTextNotEmpty
+        }
+        alert.addAction(okAction)
+
+        return alert
+    }
+
 }
 
 extension TopMapViewController: GMSMapViewDelegate {
@@ -100,5 +158,22 @@ extension TopMapViewController: GMSMapViewDelegate {
 
         // ボタンを最前面へ
         mapView.bringSubviewToFront(reSearchButton)
+    }
+
+    func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
+        presenter.didLongPress(coordinate: coordinate)
+    }
+
+    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+
+        let markerInfo = markerInfoView
+        markerInfo.spotName.text = marker.title
+
+        if let snippet = marker.snippet {
+            markerInfo.opening.text = snippet
+            markerInfo.opening.textColor = presenter.infoViewInTextColor(snippet: snippet)
+        }
+
+        return markerInfo
     }
 }

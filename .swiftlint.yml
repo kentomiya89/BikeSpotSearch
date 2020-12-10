@@ -1,0 +1,11 @@
+disabled_rules:
+- force_cast
+- force_try
+
+included:
+- BikeSpotSearch
+
+excluded:
+- Pods/
+
+line_length: 300

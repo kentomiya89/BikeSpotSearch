@@ -14,11 +14,18 @@ protocol TopMapModelOutput {
     func fetchBikeSpot(_ location: CLLocation, completion: @escaping ([PlaceSearchType: [PlaceResult]]?) -> Void)
     // 内部のjsonデータのデモを動かす用
     func getBikeSpotFromJSONData(_ location: CLLocation, completion: @escaping ([PlaceSearchType: [PlaceResult]]?) -> Void)
+    // My駐輪場を追加
+    func addMyBikeParkDB(_ name: String, _ coordinate: CLLocationCoordinate2D)
+    // My駐輪場を取得
+    func fetchMyBikeParks() -> [MyBikePark]
 }
 
-class TopMapModel {}
+class TopMapModel {
+    let myBikeParkAccessor = MyBikeParkAccessor()
+}
 
 extension TopMapModel: TopMapModelOutput {
+
     func fetchBikeSpot(_ location: CLLocation, completion: @escaping ([PlaceSearchType: [PlaceResult]]?) -> Void) {
 
         let dispatchGroup = DispatchGroup()
@@ -94,4 +101,22 @@ extension TopMapModel: TopMapModelOutput {
         }
     }
 
+    func addMyBikeParkDB(_ name: String, _ coordinate: CLLocationCoordinate2D) {
+        let myBikePark = MyBikePark()
+        myBikePark.name = name
+        // IDを登録順番に振っていく
+        myBikePark.bikeSpotId = myBikeParkAccessor.myBikeParkCount() + 1
+        myBikePark.lat = coordinate.latitude
+        myBikePark.lon = coordinate.longitude
+
+        do {
+            try myBikeParkAccessor.add(myBikePark)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+
+    func fetchMyBikeParks() -> [MyBikePark] {
+        return myBikeParkAccessor.fetchAll()
+    }
 }

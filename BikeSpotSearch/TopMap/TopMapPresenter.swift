@@ -12,6 +12,9 @@ import GoogleMaps
 protocol TopMapPresenterInput {
     func viewDidLoad()
     func reSeacrhBikeSpot(_ current: CLLocation)
+    func didLongPress(coordinate: CLLocationCoordinate2D)
+    func addMyBikeParkDB(_ name: String, _ coordinate: CLLocationCoordinate2D)
+    func infoViewInTextColor(snippet: String) -> UIColor
 }
 
 protocol TopMapPresenterOutPut: AnyObject {
@@ -25,6 +28,8 @@ protocol TopMapPresenterOutPut: AnyObject {
     func clearAllMarkerOnMap()
     // 再検索ボタンを非表示
     func hideReSearchButton()
+    // 追加する
+    func showMyBikeParkEditAlert(_ coordinate: CLLocationCoordinate2D)
 }
 
 class TopMapPresenter {
@@ -32,6 +37,8 @@ class TopMapPresenter {
     private weak var view: TopMapPresenterOutPut!
     private var model: TopMapModelOutput
     private var didShowCurrent: Bool = false
+    private var myBikeParkMarkerArray: [GMSMarker] = []
+    private var bikeSpotMarkerArray: [GMSMarker] = []
 
     init(view: TopMapPresenterOutPut) {
         self.view = view
@@ -41,6 +48,15 @@ class TopMapPresenter {
 }
 
 extension TopMapPresenter: TopMapPresenterInput {
+
+    // MARK: プロトコルメソッド
+    func viewDidLoad() {
+        Radar.shared.delegate = self
+        Radar.shared.start()
+
+        // 通知を登録
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshMarkerData), name: .removeMyBikePark, object: nil)
+    }
 
     func reSeacrhBikeSpot(_ current: CLLocation) {
         #if DEMO
@@ -67,11 +83,25 @@ extension TopMapPresenter: TopMapPresenterInput {
         #endif
     }
 
-    func viewDidLoad() {
-        Radar.shared.delegate = self
-        Radar.shared.start()
+    func didLongPress(coordinate: CLLocationCoordinate2D) {
+        view.showMyBikeParkEditAlert(coordinate)
     }
 
+    func addMyBikeParkDB(_ name: String, _ coordinate: CLLocationCoordinate2D) {
+        model.addMyBikeParkDB(name, coordinate)
+    }
+
+    func infoViewInTextColor(snippet: String) -> UIColor {
+        if snippet == L10n.opening {
+            return UIColor.blue
+        } else if snippet == L10n.closing {
+            return UIColor.red
+        } else {
+            return UIColor.black
+        }
+    }
+
+    // MARK: プライベートメソッド
     private func requestLocation(_ current: CLLocation) {
         #if DEMO
         model.getBikeSpotFromJSONData(current) { [weak self] (result) in
@@ -79,7 +109,6 @@ extension TopMapPresenter: TopMapPresenterInput {
             print(result)
             guard let result = result else { return }
             self?.makeMarkers(result, current)
-
         }
         #else
         model.fetchBikeSpot(current) { [weak self] result in
@@ -105,11 +134,18 @@ extension TopMapPresenter: TopMapPresenterInput {
             let position = CLLocationCoordinate2DMake(place.lat, place.lng)
             let marker = GMSMarker(position: position)
             marker.icon = Asset.bikePark.image
+            
+            if let openingNow = place.openingNow {
+                marker.snippet = openingNow ? L10n.opening : L10n.closing
+            } else {
+                marker.snippet = L10n.unknown
+            }
+
             marker.title = place.name
 
             return marker
         }
-        
+
         // バイク屋
         let bikeShopArray: [GMSMarker] = result[.bikeShop]!.filter {
             let position = CLLocationCoordinate2DMake($0.lat, $0.lng)
@@ -124,6 +160,12 @@ extension TopMapPresenter: TopMapPresenterInput {
             marker.icon = Asset.bikeShop.image
             marker.title = place.name
 
+            if let openingNow = place.openingNow {
+                marker.snippet = openingNow ? L10n.opening : L10n.closing
+            } else {
+                marker.snippet = L10n.unknown
+            }
+
             return marker
         }
 
@@ -133,14 +175,46 @@ extension TopMapPresenter: TopMapPresenterInput {
             view.showFailBikeSpotAlert(L10n.notFoundBikeSpot)
             return
         }
-
+            
+        // バイクスポットマーカーを保存
+        bikeSpotMarkerArray = markerArray
+        
         // 新しく表示する前に古いマーカーを消す
         view.clearAllMarkerOnMap()
+
+        showMyBikePark()
         // 再検索ボタンを非表示にする
         view.hideReSearchButton()
         view.showBikeParking(markerArray)
     }
 
+    private func showMyBikePark() {
+        let marker = makeMyBikeParkMarker(model.fetchMyBikeParks())
+        // My駐輪場を更新
+        myBikeParkMarkerArray = marker
+        view.showBikeParking(marker)
+    }
+    
+    @objc private func refreshMarkerData() {
+        // My駐輪場を更新
+        myBikeParkMarkerArray = makeMyBikeParkMarker(model.fetchMyBikeParks())
+        // 一度全てマーカーを削除
+        view.clearAllMarkerOnMap()
+        // My駐輪場を表示
+        view.showBikeParking(myBikeParkMarkerArray)
+        // バイク駐輪場とバイク屋を表示
+        view.showBikeParking(bikeSpotMarkerArray)
+    }
+    
+    private func makeMyBikeParkMarker(_ myBikeParkArray: [MyBikePark]) -> [GMSMarker] {
+        let marker: [GMSMarker] = myBikeParkArray.map() {
+            let coordinate = CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.lon)
+            let marker = GMSMarker(position: coordinate)
+            marker.title = $0.name
+            return marker
+        }
+        return marker
+    }
 }
 
 extension TopMapPresenter: RaderDelgate {

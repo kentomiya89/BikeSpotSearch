@@ -14,3 +14,7 @@ public extension Dictionary {
         return tmp
     }
 }
+
+extension Notification.Name {
+    static let removeMyBikePark = Notification.Name("removeMyBikePark")
+}

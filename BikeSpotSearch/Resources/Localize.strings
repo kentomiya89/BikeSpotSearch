@@ -7,7 +7,7 @@
 */
 
 "Map" = "地図";
-"Other" = "その他";
+"MyBikeParkTab" = "My駐輪場";
 
 "BikePark" = "自動二輪駐輪場";
 "BikeShop" = "バイク屋";
@@ -15,3 +15,12 @@
 "Can't get bike Spot" = "バイク駐輪場・バイクショップの取得に失敗しました。";
 "Not Found bike Spot" = "バイク駐輪場・バイクショップが一つも見つかりませんでした。";
 "OK" = "OK";
+"Cancel" = "キャンセル";
+
+"Add My Bicycle Parking to this position?" = "この位置にMy駐輪場を追加しますか？";
+"Please input park name" = "駐輪場名を入力してください。";
+"My bike Park" = "My bike Park";
+
+"Opening" = "営業中";
+"Closing" = "準備中";
+"Unknown" = "データなし";
