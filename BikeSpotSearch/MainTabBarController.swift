@@ -19,7 +19,7 @@ class MainTabBarController: UITabBarController {
 
         // 地図タブ
         let topMap = StoryboardScene.TopMap.initialScene.instantiate()
-        topMap.tabBarItem = UITabBarItem(title: L10n.map, image: Asset.map.image, tag: TabTag.map.rawValue)
+        topMap.tabBarItem = UITabBarItem(title: L10n.mapTab, image: Asset.map.image, tag: TabTag.map.rawValue)
         let mapNavi = UINavigationController(rootViewController: topMap)
 
         // My駐輪場タブ
