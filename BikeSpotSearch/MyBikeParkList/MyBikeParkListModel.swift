@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol MyBikeParkListModelOutput {
+protocol MyBikeParkListModelInput {
     func fetchMyBikeParks() -> [MyBikePark]
 
     func removeMyBikePark(bikePark: MyBikePark)
@@ -17,7 +17,7 @@ class MyBikeParkListModel {
     private let myBikeParkAccessor = MyBikeParkAccessor()
 }
 
-extension MyBikeParkListModel: MyBikeParkListModelOutput {
+extension MyBikeParkListModel: MyBikeParkListModelInput {
     func fetchMyBikeParks() -> [MyBikePark] {
         return myBikeParkAccessor.fetchAll()
     }

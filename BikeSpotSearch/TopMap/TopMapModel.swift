@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 import CoreLocation
 
-protocol TopMapModelOutput {
+protocol TopMapModelInput {
     // バイクスポット取得するメソッド
     func fetchBikeSpot(_ location: CLLocation, completion: @escaping ([PlaceSearchType: [PlaceResult]]?) -> Void)
     // 内部のjsonデータのデモを動かす用
@@ -21,10 +21,10 @@ protocol TopMapModelOutput {
 }
 
 class TopMapModel {
-    let myBikeParkAccessor = MyBikeParkAccessor()
+    private let myBikeParkAccessor = MyBikeParkAccessor()
 }
 
-extension TopMapModel: TopMapModelOutput {
+extension TopMapModel: TopMapModelInput {
 
     func fetchBikeSpot(_ location: CLLocation, completion: @escaping ([PlaceSearchType: [PlaceResult]]?) -> Void) {
 
@@ -32,7 +32,6 @@ extension TopMapModel: TopMapModelOutput {
         let dispatchQueue = DispatchQueue(label: "queue", attributes: .concurrent)
 
         let requestBikePark = GMAPI.PlaceSearch(bikeSpotType: .bikePark, location: location)
-
         var bikePark: BikeSpot?
 
         // バイク駐輪場をリクエスト
@@ -44,6 +43,7 @@ extension TopMapModel: TopMapModelOutput {
                     bikePark = response
                     dispatchGroup.leave()
                 case .failure(let error):
+                    print("駐輪場のリクエストエラー")
                     print(error)
                     dispatchGroup.leave()
                 }
@@ -62,6 +62,7 @@ extension TopMapModel: TopMapModelOutput {
                     bikeShop = response
                     dispatchGroup.leave()
                 case .failure(let error):
+                    print("バイク屋のリクエストエラー")
                     print(error)
                     dispatchGroup.leave()
                 }

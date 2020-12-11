@@ -14,19 +14,20 @@ class MyBikeParkListViewController: UITableViewController {
             noMyBikeSpotView.isHidden = true
         }
     }
+
     private var presenter: MyBikeParkListPresenter!
+    func inject(presenter: MyBikeParkListPresenter) {
+        self.presenter = presenter
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = MyBikeParkListPresenter(view: self)
-
     }
 
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewDidLoad()
-        presenter.viewDidAppear()
+        presenter.viewWillAppear()
     }
-
 
     // MARK: - Table view data source
 
