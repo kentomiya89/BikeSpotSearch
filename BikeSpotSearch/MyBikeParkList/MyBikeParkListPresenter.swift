@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MyBikeParkListPresenterInput {
-    func viewDidAppear()
+    func viewWillAppear()
     var myBikeParksCount: Int { get }
     func myBikePark(forRow row: Int) -> MyBikePark?
     func removeMyBikePark(forRow row: Int)
@@ -23,17 +23,17 @@ protocol MyBikeParkListPresenterOutput: AnyObject {
 class MyBikeParkListPresenter {
     private var myBikeParks: [MyBikePark] = []
     private weak var view: MyBikeParkListPresenterOutput!
-    private var model: MyBikeParkListModel
+    private var model: MyBikeParkListModelInput
 
-    init(view: MyBikeParkListPresenterOutput) {
+    init(view: MyBikeParkListPresenterOutput, model: MyBikeParkListModelInput) {
         self.view = view
-        self.model = MyBikeParkListModel()
+        self.model = model
     }
 }
 
 extension MyBikeParkListPresenter: MyBikeParkListPresenterInput {
 
-    func viewDidAppear() {
+    func viewWillAppear() {
         myBikeParks = model.fetchMyBikeParks()
         view.updateMyBikePark()
         determineMessageView()
