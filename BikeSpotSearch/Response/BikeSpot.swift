@@ -25,7 +25,6 @@ struct PlaceResult: Decodable {
     let lat: Double
     let lng: Double
     let placeID: String
-    let photoReference: [String]? // ない時がある
     let openingNow: Bool?
 
     enum ResultKeys: String, CodingKey {
@@ -49,10 +48,6 @@ struct PlaceResult: Decodable {
         case openNow = "open_now"
     }
 
-    enum PhotoKeys: String, CodingKey {
-        case photoReference = "photo_reference"
-    }
-
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: ResultKeys.self)
         name = try values.decode(String.self, forKey: .name)
@@ -69,18 +64,5 @@ struct PlaceResult: Decodable {
         let locationValue = try geometry.nestedContainer(keyedBy: LocationKeys.self, forKey: .location)
         lat = try locationValue.decode(Double.self, forKey: .lat)
         lng = try locationValue.decode(Double.self, forKey: .lng)
-
-        if var photos = try? values.nestedUnkeyedContainer(forKey: .photos) {
-            var referenseArray: [String] = []
-
-            while !photos.isAtEnd {
-                let photoValues = try photos.nestedContainer(keyedBy: PhotoKeys.self)
-                let referense = try photoValues.decode(String.self, forKey: .photoReference)
-                referenseArray.append(referense)
-            }
-            photoReference = referenseArray
-        } else {
-            photoReference = nil
-        }
     }
 }
