@@ -120,7 +120,7 @@ extension TopMapPresenter: TopMapPresenterInput {
     }
 
     // アイコンを生成する
-    private func makeMarkers(_ result: [PlaceSearchType: [PlaceResult]] , _ current: CLLocation) {
+    private func makeMarkers(_ result: [PlaceSearchType: [PlaceResult]], _ current: CLLocation) {
         // MARK: TODO もっといいロジックが思いつけば書き直す
 
         // 駐輪場
@@ -134,7 +134,7 @@ extension TopMapPresenter: TopMapPresenterInput {
             let position = CLLocationCoordinate2DMake(place.lat, place.lng)
             let marker = GMSMarker(position: position)
             marker.icon = Asset.bikePark.image
-            
+
             if let openingNow = place.openingNow {
                 marker.snippet = openingNow ? L10n.opening : L10n.closing
             } else {
@@ -175,10 +175,10 @@ extension TopMapPresenter: TopMapPresenterInput {
             view.showFailBikeSpotAlert(L10n.notFoundBikeSpot)
             return
         }
-            
+
         // バイクスポットマーカーを保存
         bikeSpotMarkerArray = markerArray
-        
+
         // 新しく表示する前に古いマーカーを消す
         view.clearAllMarkerOnMap()
 
@@ -194,7 +194,7 @@ extension TopMapPresenter: TopMapPresenterInput {
         myBikeParkMarkerArray = marker
         view.showBikeParking(marker)
     }
-    
+
     @objc private func refreshMarkerData() {
         // My駐輪場を更新
         myBikeParkMarkerArray = makeMyBikeParkMarker(model.fetchMyBikeParks())
@@ -205,9 +205,9 @@ extension TopMapPresenter: TopMapPresenterInput {
         // バイク駐輪場とバイク屋を表示
         view.showBikeParking(bikeSpotMarkerArray)
     }
-    
+
     private func makeMyBikeParkMarker(_ myBikeParkArray: [MyBikePark]) -> [GMSMarker] {
-        let marker: [GMSMarker] = myBikeParkArray.map() {
+        let marker: [GMSMarker] = myBikeParkArray.map {
             let coordinate = CLLocationCoordinate2D(latitude: $0.lat, longitude: $0.lon)
             let marker = GMSMarker(position: coordinate)
             marker.title = $0.name

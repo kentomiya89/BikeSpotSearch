@@ -16,7 +16,7 @@ struct Migration {
             migrationBlock: { migration, oldSchemaVersion in
                 if oldSchemaVersion < RealmDefine.sheamaVersion {
                     migration.enumerateObjects(ofType: MyBikePark.className()) { (_, _) in
-                        
+
                     }
                 }
             })
