@@ -19,14 +19,18 @@ class MainTabBarController: UITabBarController {
 
         // 地図タブ
         let topMap = StoryboardScene.TopMap.initialScene.instantiate()
+        let topMapModel = TopMapModel()
+        let topMapPresenter = TopMapPresenter(view: topMap, model: topMapModel)
+        topMap.inject(presenter: topMapPresenter)
+
         topMap.tabBarItem = UITabBarItem(title: L10n.mapTab, image: Asset.map.image, tag: TabTag.map.rawValue)
         let mapNavi = UINavigationController(rootViewController: topMap)
 
         // My駐輪場タブ
         let myBikePark = StoryboardScene.MyBikeParkList.initialScene.instantiate()
-        let model = MyBikeParkListModel()
-        let presenter = MyBikeParkListPresenter(view: myBikePark, model: model)
-        myBikePark.inject(presenter: presenter)
+        let myBikeParkModel = MyBikeParkListModel()
+        let myBikeParkPresenter = MyBikeParkListPresenter(view: myBikePark, model: myBikeParkModel)
+        myBikePark.inject(presenter: myBikeParkPresenter)
 
         myBikePark.tabBarItem = UITabBarItem(title: L10n.myBikeParkTab, image: Asset.myBikePark.image, tag: TabTag.mybikePark.rawValue)
         let myBikeParkNavi = UINavigationController(rootViewController: myBikePark)

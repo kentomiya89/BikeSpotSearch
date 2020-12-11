@@ -35,14 +35,14 @@ protocol TopMapPresenterOutPut: AnyObject {
 class TopMapPresenter {
 
     private weak var view: TopMapPresenterOutPut!
-    private var model: TopMapModelOutput
+    private var model: TopMapModelInput
     private var didShowCurrent: Bool = false
     private var myBikeParkMarkerArray: [GMSMarker] = []
     private var bikeSpotMarkerArray: [GMSMarker] = []
 
-    init(view: TopMapPresenterOutPut) {
+    init(view: TopMapPresenterOutPut, model: TopMapModelInput) {
         self.view = view
-        self.model = TopMapModel()
+        self.model = model
     }
 
 }
@@ -149,7 +149,7 @@ extension TopMapPresenter: TopMapPresenterInput {
 
     // マーカーの配列を作成する
     private func markerArray(_ placeResult: [PlaceResult], current: CLLocation, type: PlaceSearchType) -> [GMSMarker] {
-        
+
         let markerArray: [GMSMarker] = placeResult.filter {
             let position = CLLocationCoordinate2DMake($0.lat, $0.lng)
             let point: CLLocation = CLLocation(latitude: position.latitude, longitude: position.longitude)
@@ -160,8 +160,10 @@ extension TopMapPresenter: TopMapPresenterInput {
             let position = CLLocationCoordinate2DMake(place.lat, place.lng)
             let marker = GMSMarker(position: position)
 
-            marker.icon = Asset.bikeShop.image
-            marker.title = place.name
+            switch type {
+            case .bikePark: marker.icon = Asset.bikePark.image
+            case .bikeShop: marker.icon = Asset.bikeShop.image
+            }
 
             if let openingNow = place.openingNow {
                 marker.snippet = openingNow ? L10n.opening : L10n.closing
@@ -169,26 +171,12 @@ extension TopMapPresenter: TopMapPresenterInput {
                 marker.snippet = L10n.unknown
             }
 
+            marker.title = place.name
+
             return marker
         }
 
-        let markerArray = bikeParkArray + bikeShopArray
-        // 最寄りに候補が一つもなければ終了
-        if markerArray.count == 0 {
-            view.showFailBikeSpotAlert(L10n.notFoundBikeSpot)
-            return
-        }
-
-        // バイクスポットマーカーを保存
-        bikeSpotMarkerArray = markerArray
-
-        // 新しく表示する前に古いマーカーを消す
-        view.clearAllMarkerOnMap()
-
-        showMyBikePark()
-        // 再検索ボタンを非表示にする
-        view.hideReSearchButton()
-        view.showBikeParking(markerArray)
+        return markerArray
     }
 
     private func showMyBikePark() {

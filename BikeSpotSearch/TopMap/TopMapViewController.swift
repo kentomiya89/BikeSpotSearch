@@ -55,11 +55,13 @@ class TopMapViewController: UIViewController {
         return view
     }
 
+    func inject(presenter: TopMapPresenterInput) {
+        self.presenter = presenter
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.presenter = TopMapPresenter(view: self)
         presenter.viewDidLoad()
-
     }
 
     @IBAction func reSearchBikeSpot(_ sender: Any) {

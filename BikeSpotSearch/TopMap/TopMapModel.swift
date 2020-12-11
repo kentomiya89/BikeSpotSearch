@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 import CoreLocation
 
-protocol TopMapModelOutput {
+protocol TopMapModelInput {
     // バイクスポット取得するメソッド
     func fetchBikeSpot(_ location: CLLocation, completion: @escaping ([PlaceSearchType: [PlaceResult]]?) -> Void)
     // 内部のjsonデータのデモを動かす用
@@ -21,10 +21,10 @@ protocol TopMapModelOutput {
 }
 
 class TopMapModel {
-    let myBikeParkAccessor = MyBikeParkAccessor()
+    private let myBikeParkAccessor = MyBikeParkAccessor()
 }
 
-extension TopMapModel: TopMapModelOutput {
+extension TopMapModel: TopMapModelInput {
 
     func fetchBikeSpot(_ location: CLLocation, completion: @escaping ([PlaceSearchType: [PlaceResult]]?) -> Void) {
 
