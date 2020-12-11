@@ -51,6 +51,7 @@
 		8480A14D25779E0E009C9E29 /* apiKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8480A14C25779E0E009C9E29 /* apiKey.plist */; };
 		8480A1532577A2C7009C9E29 /* APIKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480A1522577A2C7009C9E29 /* APIKeyManager.swift */; };
 		84FF93B1258294BC00258FE3 /* MyBikeParkTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF93B0258294BC00258FE3 /* MyBikeParkTestData.swift */; };
+		84FF93B925832A1100258FE3 /* MyBikeListPresenterTestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF93B825832A1100258FE3 /* MyBikeListPresenterTestable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		8480A14C25779E0E009C9E29 /* apiKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = apiKey.plist; sourceTree = "<group>"; };
 		8480A1522577A2C7009C9E29 /* APIKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyManager.swift; sourceTree = "<group>"; };
 		84FF93B0258294BC00258FE3 /* MyBikeParkTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeParkTestData.swift; sourceTree = "<group>"; };
+		84FF93B825832A1100258FE3 /* MyBikeListPresenterTestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeListPresenterTestable.swift; sourceTree = "<group>"; };
 		9810AB3437167A5EC121E276 /* Pods_BikeSpotSearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BikeSpotSearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD1735EE927A836941A4558E /* Pods-BikeSpotSearch-BikeSpotSearchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BikeSpotSearch-BikeSpotSearchUITests.debug.xcconfig"; path = "Target Support Files/Pods-BikeSpotSearch-BikeSpotSearchUITests/Pods-BikeSpotSearch-BikeSpotSearchUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DA6D3FB664B3AD0BDF3837EC /* Pods-BikeSpotSearch.demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BikeSpotSearch.demo.xcconfig"; path = "Target Support Files/Pods-BikeSpotSearch/Pods-BikeSpotSearch.demo.xcconfig"; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 			children = (
 				8467CAA8257753FE009A1E14 /* BikeSpotSearchTests.swift */,
 				84FF93B0258294BC00258FE3 /* MyBikeParkTestData.swift */,
+				84FF93B825832A1100258FE3 /* MyBikeListPresenterTestable.swift */,
 				8467CAAA257753FE009A1E14 /* Info.plist */,
 			);
 			path = BikeSpotSearchTests;
@@ -721,6 +724,7 @@
 			files = (
 				84FF93B1258294BC00258FE3 /* MyBikeParkTestData.swift in Sources */,
 				8467CAA9257753FE009A1E14 /* BikeSpotSearchTests.swift in Sources */,
+				84FF93B925832A1100258FE3 /* MyBikeListPresenterTestable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
