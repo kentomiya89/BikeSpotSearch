@@ -55,7 +55,7 @@ struct PlaceResult: Decodable {
 
         // 値がない場合はデータがない
         if let openValue = try? values.nestedContainer(keyedBy: OpeningKey.self, forKey: .openingHours) {
-            openingNow = try openValue.decode(Bool.self, forKey: .openNow)
+            openingNow = try openValue.decodeIfPresent(Bool.self, forKey: .openNow)
         } else {
             openingNow = nil
         }
