@@ -1,0 +1,93 @@
+name: GoogleMaps, nameSpecified: 
+body: Copyright 2019 Googl…
+version: 3.3.0
+
+name: GoogleMaps, nameSpecified: 
+body: Copyright 2019 Googl…
+version: 3.3.0
+
+name: GooglePlaces, nameSpecified: 
+body: Copyright 2019 Googl…
+version: 3.3.0
+
+name: GooglePlaces, nameSpecified: 
+body: Copyright 2019 Googl…
+version: 3.3.0
+
+name: MaterialComponents, nameSpecified: 
+body: 
+                   …
+version: 86.0.0
+
+name: MaterialComponents, nameSpecified: 
+body: 
+                   …
+version: 86.0.0
+
+name: MDFInternationalization, nameSpecified: 
+body: 
+                   …
+version: 2.0.0
+
+name: MDFInternationalization, nameSpecified: 
+body: 
+                   …
+version: 2.0.0
+
+name: MDFTextAccessibility, nameSpecified: 
+body: 
+                   …
+version: 2.0.0
+
+name: MDFTextAccessibility, nameSpecified: 
+body: 
+                   …
+version: 2.0.0
+
+name: MotionAnimator, nameSpecified: 
+body: 
+                   …
+version: 2.8.1
+
+name: MotionAnimator, nameSpecified: 
+body: 
+                   …
+version: 2.8.1
+
+name: MotionInterchange, nameSpecified: 
+body: 
+                   …
+version: 1.6.0
+
+name: MotionInterchange, nameSpecified: 
+body: 
+                   …
+version: 1.6.0
+
+name: MotionTransitioning, nameSpecified: 
+body: 
+                   …
+version: 5.0.0
+
+name: MotionTransitioning, nameSpecified: 
+body: 
+                   …
+version: 5.0.0
+
+name: LicensePlist, nameSpecified: , owner: mono0926, version: 
+
+name: SwiftGen, nameSpecified: , owner: SwiftGen, version: 
+
+name: SwiftLint, nameSpecified: , owner: realm, version: 
+
+name: Alamofire, nameSpecified: Alamofire, owner: Alamofire, version: 5.4.0
+
+name: PKHUD, nameSpecified: PKHUD, owner: pkluz, version: 5.4.0
+
+name: realm-cocoa, nameSpecified: Realm, owner: realm, version: 10.3.0
+
+name: realm-core, nameSpecified: RealmCore, owner: realm, version: 10.1.3
+
+add-version-numbers: false
+
+LicensePlist Version: 3.0.5

@@ -14,19 +14,21 @@ enum TabTag: Int {
 
 class MainTabBarController: UITabBarController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var savedTabIndex = 0
 
-        // 地図タブ
+    // 地図タブ
+    var mapNavi: UINavigationController {
         let topMap = StoryboardScene.TopMap.initialScene.instantiate()
         let topMapModel = TopMapModel()
         let topMapPresenter = TopMapPresenter(view: topMap, model: topMapModel)
         topMap.inject(presenter: topMapPresenter)
 
         topMap.tabBarItem = UITabBarItem(title: L10n.mapTab, image: Asset.map.image, tag: TabTag.map.rawValue)
-        let mapNavi = UINavigationController(rootViewController: topMap)
+        return UINavigationController(rootViewController: topMap)
+    }
 
-        // My駐輪場タブ
+    // My駐輪場タブ
+    var myBikeParkNavi: UINavigationController {
         let myBikePark = StoryboardScene.MyBikeParkList.initialScene.instantiate()
         let myBikeParkModel = MyBikeParkListModel()
         let myBikeParkPresenter = MyBikeParkListPresenter(view: myBikePark, model: myBikeParkModel)
@@ -34,7 +36,25 @@ class MainTabBarController: UITabBarController {
 
         myBikePark.tabBarItem = UITabBarItem(title: L10n.myBikeParkTab, image: Asset.myBikePark.image, tag: TabTag.mybikePark.rawValue)
         let myBikeParkNavi = UINavigationController(rootViewController: myBikePark)
+        return myBikeParkNavi
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
         self.viewControllers = [mapNavi, myBikeParkNavi]
+
+        NotificationCenter.default.addObserver(self, selector: #selector(willTerminate), name: UIApplication.willTerminateNotification, object: nil)
+
+        selectedIndex = UserDefaults.standard.integer(forKey: UserDefaultDefine.tabBarSelectedIndex)
     }
+
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        savedTabIndex = selectedIndex
+    }
+
+    @objc func willTerminate() {
+        UserDefaults.standard.set(savedTabIndex, forKey: UserDefaultDefine.tabBarSelectedIndex)
+    }
+
 }

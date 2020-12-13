@@ -35,3 +35,7 @@ struct NibFileIdentifier {
 struct RealmDefine {
     static let sheamaVersion: UInt64 = 0
 }
+
+struct UserDefaultDefine {
+    static let tabBarSelectedIndex = "tabBarSelectedIndex"
+}
