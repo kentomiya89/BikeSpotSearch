@@ -4,8 +4,6 @@ PODS:
   - GoogleMaps/Base (3.3.0)
   - GoogleMaps/Maps (3.3.0):
     - GoogleMaps/Base
-  - GooglePlaces (3.3.0):
-    - GoogleMaps/Base (= 3.3.0)
   - MaterialComponents (86.0.0):
     - MaterialComponents/ActionSheet (= 86.0.0)
     - "MaterialComponents/ActionSheet+Theming (= 86.0.0)"
@@ -644,13 +642,11 @@ PODS:
 
 DEPENDENCIES:
   - GoogleMaps
-  - GooglePlaces
   - MaterialComponents
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - GoogleMaps
-    - GooglePlaces
     - MaterialComponents
     - MDFInternationalization
     - MDFTextAccessibility
@@ -660,7 +656,6 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   GoogleMaps: cfee83da305b9aaeccf92c24ac79df11c3003492
-  GooglePlaces: 1e2a87bd9efee9623ee65d44ecc35ebfecd7b13c
   MaterialComponents: 332e82f1b0976f137e5e5d1d261208df5dc1b67d
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
@@ -668,6 +663,6 @@ SPEC CHECKSUMS:
   MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
   MotionTransitioning: 23d25edc2f4606efb922403cbac6d81af37aa33a
 
-PODFILE CHECKSUM: 6b87b239ada9fa693cd6f733315a8c26977128db
+PODFILE CHECKSUM: 8ec016b520397f71685bd0ad0616d27372ae9696
 
 COCOAPODS: 1.10.0

@@ -48,7 +48,7 @@
 		847420F7257B43990038B829 /* bike_park.json in Resources */ = {isa = PBXBuildFile; fileRef = 847420F6257B43990038B829 /* bike_park.json */; };
 		847420FC257B48320038B829 /* DemoJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847420FB257B48320038B829 /* DemoJSON.swift */; };
 		84742126257B5D960038B829 /* Rader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84742125257B5D950038B829 /* Rader.swift */; };
-		8480A14D25779E0E009C9E29 /* apiKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8480A14C25779E0E009C9E29 /* apiKey.plist */; };
+		8480A14D25779E0E009C9E29 /* APIKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8480A14C25779E0E009C9E29 /* APIKey.plist */; };
 		8480A1532577A2C7009C9E29 /* APIKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480A1522577A2C7009C9E29 /* APIKeyManager.swift */; };
 		84C809882585DE9400C55F12 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84C809872585DE9400C55F12 /* Settings.bundle */; };
 		84FF93B1258294BC00258FE3 /* MyBikeParkTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF93B0258294BC00258FE3 /* MyBikeParkTestData.swift */; };
@@ -120,7 +120,7 @@
 		847420F6257B43990038B829 /* bike_park.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bike_park.json; sourceTree = "<group>"; };
 		847420FB257B48320038B829 /* DemoJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoJSON.swift; sourceTree = "<group>"; };
 		84742125257B5D950038B829 /* Rader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rader.swift; sourceTree = "<group>"; };
-		8480A14C25779E0E009C9E29 /* apiKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = apiKey.plist; sourceTree = "<group>"; };
+		8480A14C25779E0E009C9E29 /* APIKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKey.plist; sourceTree = "<group>"; };
 		8480A1522577A2C7009C9E29 /* APIKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyManager.swift; sourceTree = "<group>"; };
 		84C809872585DE9400C55F12 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		84FF93B0258294BC00258FE3 /* MyBikeParkTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeParkTestData.swift; sourceTree = "<group>"; };
@@ -348,7 +348,7 @@
 				847420F6257B43990038B829 /* bike_park.json */,
 				84501953257DF84B006E7BB2 /* bike_shop.json */,
 				8467CA9F257753FE009A1E14 /* Info.plist */,
-				8480A14C25779E0E009C9E29 /* apiKey.plist */,
+				8480A14C25779E0E009C9E29 /* APIKey.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -491,7 +491,7 @@
 				84C809882585DE9400C55F12 /* Settings.bundle in Resources */,
 				8467CA9E257753FE009A1E14 /* LaunchScreen.storyboard in Resources */,
 				847420F7257B43990038B829 /* bike_park.json in Resources */,
-				8480A14D25779E0E009C9E29 /* apiKey.plist in Resources */,
+				8480A14D25779E0E009C9E29 /* APIKey.plist in Resources */,
 				8467CA9B257753FE009A1E14 /* Assets.xcassets in Resources */,
 				8467CA99257753F9009A1E14 /* TopMap.storyboard in Resources */,
 				845018F8257D360E006E7BB2 /* Localize.strings in Resources */,

@@ -3,12 +3,11 @@
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 ## API key 
-apiKey.plist
-bike_park.json
-bike_shop.json
+APIKey.plist
+
 
 ## SwiftGen
-Generated/
+# Generated/
 
 ## User settings
 xcuserdata/
