@@ -6,7 +6,6 @@ target 'BikeSpotSearch' do
   use_frameworks!
   source 'https://github.com/CocoaPods/Specs.git' 
   pod 'GoogleMaps' 
-  pod 'GooglePlaces'
   pod 'MaterialComponents' 
 
   # Pods for BikeSpotSearch
