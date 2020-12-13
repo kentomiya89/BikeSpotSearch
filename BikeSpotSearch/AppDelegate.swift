@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Migration().migration()
 
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.makeKeyAndVisible()
         self.window?.rootViewController = tabBarController
+        self.window?.makeKeyAndVisible()
 
         if let apikey = getGoogleMapKey {
             GMSServices.provideAPIKey(apikey)
