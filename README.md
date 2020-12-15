@@ -5,14 +5,13 @@
 アプリを開くだけで、最寄りのバイク駐輪場とバイク屋を地図ベースで探せるというコンセプトでアプリを開発しました。
 
 # スクリーンショット
-アプリを開くと現在地から半径3000m以内にあるバイク駐輪場はバイクのアイコン
-バイク屋はお店のアイコンでそれぞれ表示します。
+アプリを開くと現在地から半径3000m以内にあるバイク駐輪場はバイクのアイコン、バイク屋はお店のアイコンでそれぞれ表示します。  
 <img src="https://user-images.githubusercontent.com/26946838/102017246-1241c680-3da9-11eb-8051-89c016376d1d.png" width="200">
 <img src="https://user-images.githubusercontent.com/26946838/102017263-2f769500-3da9-11eb-8e34-e41d309f2b71.png" width="200">
 <img src="https://user-images.githubusercontent.com/26946838/102017267-31405880-3da9-11eb-9d09-aa7900e1a38c.png" width="200">
 
 
-また、もしバイクの駐輪場を契約している場合に「My駐輪場」として追加することできます。長押しで何か名称をつけて登録するとMy駐輪場として地図に追加されます。
+また、もしバイクの駐輪場を契約している場合に「My駐輪場」として追加することできます。長押しで何か名称をつけて登録するとMy駐輪場として地図に追加されます。  
 <img src="https://user-images.githubusercontent.com/26946838/102017403-24703480-3daa-11eb-9250-e017b059ba9b.png" width="200">
 <img src="https://user-images.githubusercontent.com/26946838/102017409-2803bb80-3daa-11eb-993e-69599200480c.png" width="200">
 
@@ -32,17 +31,17 @@
  * UI: Stroyboard + XIB
  * Architecture: MVP
  * Library
-  * CocoaPods
-    * GoogleMaps 4.1.0 
-    * MaterialComponents 119.2.0
-  * Swift Package Manager
-    * Alamofire 5.4.0
-    * PKHUD 5.4.0
-    * Realm 10.3.0
+   * CocoaPods
+     * GoogleMaps 4.1.0 
+     * MaterialComponents 119.2.0
+   * Swift Package Manager
+     * Alamofire 5.4.0
+     * PKHUD 5.4.0
+     * Realm 10.3.0
  * Mint
-  * LicensePlist 3.0.5
-  * SwiftGen 6.4.0
-  * SwiftLint 0.41.0
+   * LicensePlist 3.0.5
+   * SwiftGen 6.4.0
+   * SwiftLint 0.41.0
   
 # 地図に関して
 APIはGoogleMapsPlatform [Place Search API](https://developers.google.com/places/web-service/search) を使って
