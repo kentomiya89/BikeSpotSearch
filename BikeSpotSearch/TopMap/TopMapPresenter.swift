@@ -123,10 +123,18 @@ extension TopMapPresenter: TopMapPresenterInput {
     private func makeMarkers(_ result: [PlaceSearchType: [PlaceResult]], _ current: CLLocation) {
         // MARK: TODO もっといいロジックが思いつけば書き直す
 
+        guard let bikeParkResult = result[.bikePark],
+              let bikeShopResult = result[.bikeShop] else {
+            // バイク駐輪場・バイク屋どちらか片方しか取れてない場合も
+            // エラーメッセージを表示する
+            view.showFailBikeSpotAlert(L10n.canTGetBikeSpot)
+            return
+        }
+
         // 駐輪場
-        let bikeParkArray: [GMSMarker] =  markerArray(result[.bikePark]!, current: current, type: .bikePark)
+        let bikeParkArray: [GMSMarker] =  markerArray(bikeParkResult, current: current, type: .bikePark)
         // バイク屋
-        let bikeShopArray: [GMSMarker] = markerArray(result[.bikeShop]!, current: current, type: .bikeShop)
+        let bikeShopArray: [GMSMarker] = markerArray(bikeShopResult, current: current, type: .bikeShop)
         let markerArray = bikeParkArray + bikeShopArray
 
         // 最寄りに候補が一つもなければ終了
