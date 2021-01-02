@@ -39,3 +39,8 @@ struct RealmDefine {
 struct UserDefaultDefine {
     static let tabBarSelectedIndex = "tabBarSelectedIndex"
 }
+
+struct NotificationUserInfoDefine {
+
+    static let currentLocation = "currentLocation"
+}

@@ -51,11 +51,13 @@ extension TopMapPresenter: TopMapPresenterInput {
 
     // MARK: プロトコルメソッド
     func viewDidLoad() {
-        Radar.shared.delegate = self
         Radar.shared.start()
 
-        // 通知を登録
+        // マーカーのリフレッシュ
         NotificationCenter.default.addObserver(self, selector: #selector(refreshMarkerData), name: .removeMyBikePark, object: nil)
+
+        // 現在位置の更新
+        NotificationCenter.default.addObserver(self, selector: #selector(currentLocation(notication:)), name: .currentLocation, object: nil)
     }
 
     func reSeacrhBikeSpot(_ current: CLLocation) {
@@ -216,9 +218,13 @@ extension TopMapPresenter: TopMapPresenterInput {
     }
 }
 
-extension TopMapPresenter: RaderDelgate {
+// MARK: Location
+extension TopMapPresenter {
 
-    func currentLocation(location: CLLocation) {
+    @objc func currentLocation(notication: Notification) {
+
+        guard let location = notication.userInfo?[NotificationUserInfoDefine.currentLocation] as? CLLocation else { return }
+
         // 既に現在地を表示していたら表示しない
         if didShowCurrent == true {
             return

@@ -9,26 +9,21 @@ import UIKit
 import Foundation
 import CoreLocation
 
-protocol RaderDelgate: AnyObject {
-    func currentLocation(location: CLLocation)
-}
-
 class Radar: NSObject {
 
     static let shared = Radar()
-    weak var delegate: RaderDelgate?
 
     var locationManager: CLLocationManager {
         didSet {
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.distanceFilter = kCLLocationAccuracyHundredMeters
+            locationManager.delegate = self
         }
     }
 
     override init() {
         locationManager = CLLocationManager()
         super.init()
-        locationManager.delegate = self
     }
 
     func start() {
@@ -98,7 +93,7 @@ extension Radar: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let mostRecentLocation = locations.last else { return }
-        delegate?.currentLocation(location: mostRecentLocation)
+        NotificationCenter.default.post(name: .currentLocation, object: nil, userInfo: [NotificationUserInfoDefine.currentLocation: mostRecentLocation])
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
