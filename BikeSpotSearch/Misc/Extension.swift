@@ -17,4 +17,6 @@ public extension Dictionary {
 
 extension Notification.Name {
     static let removeMyBikePark = Notification.Name("removeMyBikePark")
+
+    static let currentLocation = Notification.Name("currentLocation")
 }
