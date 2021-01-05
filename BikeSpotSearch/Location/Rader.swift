@@ -17,13 +17,13 @@ class Radar: NSObject {
         didSet {
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.distanceFilter = kCLLocationAccuracyHundredMeters
-            locationManager.delegate = self
         }
     }
 
     override init() {
         locationManager = CLLocationManager()
         super.init()
+        locationManager.delegate = self
     }
 
     func start() {
@@ -92,6 +92,9 @@ extension Radar: CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        
+        
         guard let mostRecentLocation = locations.last else { return }
         NotificationCenter.default.post(name: .currentLocation, object: nil, userInfo: [NotificationUserInfoDefine.currentLocation: mostRecentLocation])
     }
