@@ -34,7 +34,7 @@ class MyBikeParkListPresenter {
 extension MyBikeParkListPresenter: MyBikeParkListPresenterInput {
 
     func viewWillAppear() {
-        myBikeParks = model.fetchMyBikeParks()
+//        myBikeParks = model.fetchMyBikeParks()
         view.updateMyBikePark()
         determineMessageView()
     }
