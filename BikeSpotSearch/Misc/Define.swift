@@ -14,6 +14,7 @@ struct LocationRelateNumber {
 
 struct TableViewCellIdentifier {
     static let myBikeParkCell = "MyBikeParkCell"
+    static let myBikeParkSection = "MyBikeParkSection"
 }
 
 enum PlaceSearchType: String {

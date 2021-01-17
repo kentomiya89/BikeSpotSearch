@@ -50,6 +50,13 @@
 		84742126257B5D960038B829 /* Rader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84742125257B5D950038B829 /* Rader.swift */; };
 		8480A14D25779E0E009C9E29 /* APIKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8480A14C25779E0E009C9E29 /* APIKey.plist */; };
 		8480A1532577A2C7009C9E29 /* APIKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480A1522577A2C7009C9E29 /* APIKeyManager.swift */; };
+		849E59EA25A210E4007AB1CC /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 849E59E925A210E4007AB1CC /* RxSwift */; };
+		849E59EC25A210E4007AB1CC /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 849E59EB25A210E4007AB1CC /* RxCocoa */; };
+		849E59EE25A210E4007AB1CC /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 849E59ED25A210E4007AB1CC /* RxRelay */; };
+		849E59F325A2AF01007AB1CC /* MyBikeParkListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E59F225A2AF00007AB1CC /* MyBikeParkListViewModel.swift */; };
+		84B697B225B2443B00804303 /* RxRealm in Frameworks */ = {isa = PBXBuildFile; productRef = 84B697B125B2443B00804303 /* RxRealm */; };
+		84B6980B25B3257700804303 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 84B6980A25B3257700804303 /* Differentiator */; };
+		84B6980D25B3257700804303 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 84B6980C25B3257700804303 /* RxDataSources */; };
 		84C809882585DE9400C55F12 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84C809872585DE9400C55F12 /* Settings.bundle */; };
 		84FF93B1258294BC00258FE3 /* MyBikeParkTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF93B0258294BC00258FE3 /* MyBikeParkTestData.swift */; };
 		84FF93B925832A1100258FE3 /* MyBikeListPresenterTestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF93B825832A1100258FE3 /* MyBikeListPresenterTestable.swift */; };
@@ -122,6 +129,7 @@
 		84742125257B5D950038B829 /* Rader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rader.swift; sourceTree = "<group>"; };
 		8480A14C25779E0E009C9E29 /* APIKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKey.plist; sourceTree = "<group>"; };
 		8480A1522577A2C7009C9E29 /* APIKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeyManager.swift; sourceTree = "<group>"; };
+		849E59F225A2AF00007AB1CC /* MyBikeParkListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeParkListViewModel.swift; sourceTree = "<group>"; };
 		84C809872585DE9400C55F12 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		84FF93B0258294BC00258FE3 /* MyBikeParkTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeParkTestData.swift; sourceTree = "<group>"; };
 		84FF93B825832A1100258FE3 /* MyBikeListPresenterTestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBikeListPresenterTestable.swift; sourceTree = "<group>"; };
@@ -138,9 +146,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849E59EC25A210E4007AB1CC /* RxCocoa in Frameworks */,
 				842DABA2258087BA0028D4B9 /* RealmSwift in Frameworks */,
+				84B697B225B2443B00804303 /* RxRealm in Frameworks */,
+				84B6980D25B3257700804303 /* RxDataSources in Frameworks */,
+				849E59EE25A210E4007AB1CC /* RxRelay in Frameworks */,
 				845019B2257E6521006E7BB2 /* PKHUD in Frameworks */,
+				849E59EA25A210E4007AB1CC /* RxSwift in Frameworks */,
 				814798C60C23B19B5D6E0D81 /* Pods_BikeSpotSearch.framework in Frameworks */,
+				84B6980B25B3257700804303 /* Differentiator in Frameworks */,
 				8474207D2578BFDE0038B829 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				842DABBA2580C4EA0028D4B9 /* MyBikeParkListViewController.swift */,
+				849E59F225A2AF00007AB1CC /* MyBikeParkListViewModel.swift */,
 				842DABC22580C9100028D4B9 /* MyBikeParkListPresenter.swift */,
 				842DABC72580C9510028D4B9 /* MyBikeParkListModel.swift */,
 				845018F2257D33E1006E7BB2 /* MyBikeParkList.storyboard */,
@@ -389,6 +404,12 @@
 				8474207C2578BFDE0038B829 /* Alamofire */,
 				845019B1257E6521006E7BB2 /* PKHUD */,
 				842DABA1258087BA0028D4B9 /* RealmSwift */,
+				849E59E925A210E4007AB1CC /* RxSwift */,
+				849E59EB25A210E4007AB1CC /* RxCocoa */,
+				849E59ED25A210E4007AB1CC /* RxRelay */,
+				84B697B125B2443B00804303 /* RxRealm */,
+				84B6980A25B3257700804303 /* Differentiator */,
+				84B6980C25B3257700804303 /* RxDataSources */,
 			);
 			productName = BikeSpotSearch;
 			productReference = 8467CA8E257753F9009A1E14 /* BikeSpotSearch.app */;
@@ -469,6 +490,9 @@
 				8474207B2578BFDE0038B829 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				845019B0257E6520006E7BB2 /* XCRemoteSwiftPackageReference "PKHUD" */,
 				842DABA0258087B90028D4B9 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				849E59E825A210E4007AB1CC /* XCRemoteSwiftPackageReference "RxSwift" */,
+				84B697B025B2443A00804303 /* XCRemoteSwiftPackageReference "RxRealm" */,
+				84B6980925B3257500804303 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			productRefGroup = 8467CA8F257753F9009A1E14 /* Products */;
 			projectDirPath = "";
@@ -696,6 +720,7 @@
 				842DABC82580C9520028D4B9 /* MyBikeParkListModel.swift in Sources */,
 				845018EC257D241B006E7BB2 /* XCAssets+Generated.swift in Sources */,
 				842DAC102581D1470028D4B9 /* Migration.swift in Sources */,
+				849E59F325A2AF01007AB1CC /* MyBikeParkListViewModel.swift in Sources */,
 				847420FC257B48320038B829 /* DemoJSON.swift in Sources */,
 				842DABC32580C9110028D4B9 /* MyBikeParkListPresenter.swift in Sources */,
 				84501913257DB83A006E7BB2 /* MainTabBarController.swift in Sources */,
@@ -1219,6 +1244,30 @@
 				minimumVersion = 5.4.0;
 			};
 		};
+		849E59E825A210E4007AB1CC /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		84B697B025B2443A00804303 /* XCRemoteSwiftPackageReference "RxRealm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxRealm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		84B6980925B3257500804303 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1236,6 +1285,36 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8474207B2578BFDE0038B829 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		849E59E925A210E4007AB1CC /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 849E59E825A210E4007AB1CC /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		849E59EB25A210E4007AB1CC /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 849E59E825A210E4007AB1CC /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		849E59ED25A210E4007AB1CC /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 849E59E825A210E4007AB1CC /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		84B697B125B2443B00804303 /* RxRealm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84B697B025B2443A00804303 /* XCRemoteSwiftPackageReference "RxRealm" */;
+			productName = RxRealm;
+		};
+		84B6980A25B3257700804303 /* Differentiator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84B6980925B3257500804303 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = Differentiator;
+		};
+		84B6980C25B3257700804303 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84B6980925B3257500804303 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
