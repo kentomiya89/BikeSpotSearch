@@ -30,6 +30,9 @@ class MainTabBarController: UITabBarController {
     // My駐輪場タブ
     var myBikeParkNavi: UINavigationController {
         let myBikePark = StoryboardScene.MyBikeParkList.initialScene.instantiate()
+        let myBikeParkModel = MyBikeParkListModel()
+        let myBikeParkPresenter = MyBikeParkListPresenter(view: myBikePark, model: myBikeParkModel)
+        myBikePark.inject(presenter: myBikeParkPresenter)
 
         myBikePark.tabBarItem = UITabBarItem(title: L10n.myBikeParkTab, image: Asset.myBikePark.image, tag: TabTag.mybikePark.rawValue)
         let myBikeParkNavi = UINavigationController(rootViewController: myBikePark)

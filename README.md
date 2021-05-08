@@ -29,9 +29,7 @@
  
  # 使用技術
  * UI: Stroyboard + XIB
- * Architecture: 
-   * MVP (地図画面)
-   * MVVM (My駐輪場一覧画面)
+ * Architecture: MVP
  * Library
    * CocoaPods
      * GoogleMaps 4.1.0 
@@ -40,9 +38,6 @@
      * Alamofire 5.4.0
      * PKHUD 5.4.0
      * Realm 10.3.0
-     * RxSwift 6.0.0
-     * RxRealm 5.0.1
-     * RxDataSpurce 5.0.0
  * Mint
    * LicensePlist 3.0.5
    * SwiftGen 6.4.0
