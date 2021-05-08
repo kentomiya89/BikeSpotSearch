@@ -6,45 +6,67 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
-import RxDataSources
 
 class MyBikeParkListViewController: UITableViewController {
 
-    @IBOutlet weak var noMyBikeSpotView: UIView!
+    @IBOutlet weak var noMyBikeSpotView: UIView! {
+        didSet {
+            noMyBikeSpotView.isHidden = true
+        }
+    }
 
-    private let disposebag = DisposeBag()
-    private lazy var viewModel = MyBikeParkListViewModel(itemDeleted: tableView.rx.itemDeleted.asObservable(),
-                                                         model: MyBikeParkListModel())
-
-    private lazy var dataSource = RxTableViewSectionedAnimatedDataSource<BikeParkSectionModel> { _, tableView, indexPath, myBikePark -> UITableViewCell in
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifier.myBikeParkCell,
-                                                 for: indexPath)
-        cell.textLabel?.text = myBikePark.name
-        return cell
-    } canEditRowAtIndexPath: { _, _ in
-        return true
+    private var presenter: MyBikeParkListPresenter!
+    func inject(presenter: MyBikeParkListPresenter) {
+        self.presenter = presenter
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModelBind()
     }
 
-    private func setUpTableView() {
-        tableView.register(UITableViewCell.self,
-                           forCellReuseIdentifier: TableViewCellIdentifier.myBikeParkCell)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidLoad()
+        presenter.viewWillAppear()
     }
 
-    private func viewModelBind() {
+    // MARK: - Table view data source
 
-        viewModel.noBikeSpotViewIsHidden
-            .bind(to: noMyBikeSpotView.rx.isHidden)
-            .disposed(by: disposebag)
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
 
-        viewModel.bikeParkSection
-            .bind(to: tableView.rx.items(dataSource: dataSource))
-            .disposed(by: disposebag)
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return presenter.myBikeParksCount
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifier.myBikeParkCell, for: indexPath)
+
+        if let myBikePark = presenter.myBikePark(forRow: indexPath.row) {
+            cell.textLabel?.text = myBikePark.name
+        }
+
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        presenter.removeMyBikePark(forRow: indexPath.row)
+    }
+}
+
+extension MyBikeParkListViewController: MyBikeParkListPresenterOutput {
+
+    func showNoMyBikeParkMessage() {
+        noMyBikeSpotView.isHidden = false
+    }
+
+    func hideNoMyBikeParkMessage() {
+        noMyBikeSpotView.isHidden = true
+    }
+
+    func updateMyBikePark() {
+        tableView.reloadData()
     }
 }

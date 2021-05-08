@@ -28,10 +28,6 @@ struct MyBikeParkAccessor {
         return Array(realm.objects(MyBikePark.self))
     }
 
-    func fetchResults() -> Results<MyBikePark> {
-        return realm.objects(MyBikePark.self)
-    }
-
     func myBikeParkCount() -> Int {
         let result = realm.objects(MyBikePark.self)
         return result.count
